@@ -6,13 +6,15 @@ import { EnquiryFormComponent } from './enquiry-form/enquiry-form.component';
 import { HttpModule } from '@angular/http';
 import { RegistrationFormComponent } from './registration-form/registration-form.component';
 import { PackagesComponent } from './packages/packages.component';
+import { TwoWayBindComponent } from './two-way-bind/two-way-bind.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EnquiryFormComponent,
     RegistrationFormComponent,
-    PackagesComponent
+    PackagesComponent,
+    TwoWayBindComponent
   ],
   imports: [
     BrowserModule,

@@ -42,17 +42,18 @@
     <label>Packages</label>
     <div class="form-group" >
       <label>Select the desired package</label>
-      <select class="form-control" (change)="package(x.value)" #x  ngModel name="package">
-        <option>None</option>
-        <option *ngFor="let package of packages" id={{package.name}}>{{package.name}}</option>
+      <select class="form-control" (change)="package(x.value)" #x="ngModel"  ngModel name="package" required  >
+        <option >None</option>
+        <option *ngFor="let package of packages" id={{package.name}} >{{package.name}}</option>
       </select>
+      <div class="alert alert-danger" *ngIf="x.invalid && x.touched">select the package</div>
     </div>
   <label>Individual Courses</label>
   <div ngModelGroup="individual_courses">    
     <div class="form-group " >
       <div *ngFor="let course of courses">
         <label class="checkbox-inline">
-          <input type="checkbox" ngModel name="{{course.name}}" id="{{course.name}}">{{course.name}}
+          <input type="checkbox" ngModel name="{{course.name}}" value={{course.name}} id="{{course.name}}"  [(ngModel)]=course.opted  >{{course.name}}
         </label> &nbsp;
       </div>
     </div>
@@ -88,6 +89,6 @@
       <label for="enquiry">Special Comments</label>
       <textarea class="form-control" rows="2" cols="2" name="enquiry" id="enquiry"  ngModel #comments="ngModel" ></textarea>
     </div>
-    <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Submit</button>
+    <button class="btn btn-primary" type="submit" >Submit</button>
   </form>
 </div>

@@ -1,0 +1,6 @@
+<div *ngFor="let course of courses">
+<label for="{{course.name}}">{{course.name}}
+  <input type="checkbox"  [checked]=course.opted (click)=myfunc()  />{{course.opted}}
+</label>
+</div>
+<button (click)="myfunc()">click here</button>

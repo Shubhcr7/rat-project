@@ -20,27 +20,33 @@ export class RegistrationFormComponent implements OnInit {
   courses:any=[
     {
     name:'Core_Java',
-    fee:7000
+    fee:7000,
+    opted:false
     },
     {
       name:'Php',
-      fee:5000
+      fee:5000,
+      opted:false
     },
     {
       name:'Oracle_SQL',
-      fee:6000
+      fee:6000,
+      opted:false
     },
     {
       name:'Bigdata_Hadoop',
-      fee:15000
+      fee:15000,
+      opted:false
     },
     {
       name:'AWS',
-      fee:6000
+      fee:6000,
+      opted:false
     },
     {
       name:'AdminI',
-      fee:7000
+      fee:7000,
+      opted:false
     },
 ];
 //package modal
@@ -63,50 +69,64 @@ fees:20000
 ]; 
   package(x){
 
-    if(x=='None')
-    {
-      this.courses.forEach(element => {
-        $("#"+element.name).prop("checked",false);
-        $("#"+element.name).prop("disabled",false);
-      });  
-    }
-
     this.courses.forEach(element => {
-      $("#"+element.name).prop("checked",false);
-      $("#"+element.name).prop("disabled",false);
+    element.opted=false;      
     });
-    this.packages.forEach(element => {
-      
-    if(element.name==x)  
+
+    this.packages.forEach(pack => {
+      if(x==pack.name)
       {
-        let array=element.content.split(',');
-        // console.log(array);
+        let array=pack.content.split(',');
         array.forEach(element => {
-          $("#"+element).prop( "checked", true );
-          $("#"+element).prop( "disabled", true );
+          this.courses.forEach(course => {
+            if(element==course.name)
+            {
+              course.opted=true;
+            }
+          });
         });
-      }  
+      }
     });
-    
   }
 
   fees()
   {
     this.fee=0;
-   let x=$("select option:selected").text();
-   this.packages.forEach(element => {
-     if(x==element.name)
-     {
+    let y;
+    let x=$("select option:selected").text();
+    if(x){
+
+    if(x=='None'){
+      this.courses.forEach(course => {
+        if(course.opted){
+        this.fee=this.fee + course.fee;
+        }
+      });
+    }
+    else{
+    this.packages.forEach(element => {
+      if(x==element.name)
+      {
        this.fee=element.fees;
-     }
-   });
-   this.courses.forEach(element => {
-     if($("#"+element.name).prop('checked') && !$("#"+element.name).prop('disabled'))
+       y=element.content.split(',');
+      }
+    });
+    
+    this.courses.forEach(course => {
+     if( y.indexOf(course.name)==-1 && course.opted==true)
      {
-       this.fee=this.fee+element.fee;
+       this.fee=this.fee + course.fee;
+      // console.log(course.name);
      }
-   });
+     
+    });
+    }
+}
+else{
+  this.fee=0;
+}
   }
+
 
   findDueFee()
   {
@@ -114,6 +134,9 @@ fees:20000
     if(this.feedue>0)
     {
       this.feedue_flag=true;
+    }
+    else{
+      this.feedue_flag=false;
     }
   }
   ngOnInit() {
@@ -137,7 +160,8 @@ fees:20000
     let submit:boolean;
     submit=window.confirm("Are you sure to submit the form ?");
     if(submit){
-      console.log(x.value);
+      let y=JSON.stringify(x.value.individual_courses);
+      let z=JSON.parse(y);
     }
   }
 }
