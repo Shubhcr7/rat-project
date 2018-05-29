@@ -1,0 +1,81 @@
+
+<div class="container" style="border-style:solid">
+  <div >
+    <h1>
+      <img src="./../../assets/rat-logo.png" />
+      <br><br>
+      Road Ahead Technologies Pvt Ltd Enquiry-Form</h1>
+    <!-- <img src="../../assets/rat-logo.png"  class="img-fluid" /> -->
+    </div>
+    
+  <form #f="ngForm" (ngSubmit)="submit(f)">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input class="form-control" ngModel required name="name" id="name"  #name="ngModel" pattern="[a-zA-Z][a-zA-Z ]+"/>
+      <div class="form-control alert-danger" *ngIf="name.invalid && name.touched">Invalid Name</div>
+      </div>
+      <div class="form-group">
+        <label for="number">Number</label>
+      <input pattern="[0-9]*" required minlength="10" maxlength="10" class="form-control" ngModel name="number" id="number" #number="ngModel"/>
+    </div>
+    <div *ngIf="number.invalid && number.touched" class="alert-danger">
+      Number is invalid
+      <div *ngIf="number.errors.minlength" class="alert-danger">Not a 10 digit number</div>
+    </div>
+    
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input ngModel name="email" class="form-control" id="email" #email="ngModel" required type="email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" />
+      <div class="form-control alert-danger" *ngIf="email.invalid && email.touched">Email is invalid</div>
+    </div> 
+    <div class="form-group">
+      <label for="college">College</label>
+      <input type="text" class="form-control" ngModel #college="ngModel" name="college" id="college" required pattern="[a-zA-Z][a-zA-Z ]+" />
+      <div class="alert-danger form-control" *ngIf="college.invalid && college.touched" >Invalid College Name</div>
+    </div>
+    <div class="form-group">
+      <label class="checkbox-inline">
+        <input type="checkbox" ngModel name="core_java"> Core Java
+      </label> &nbsp;
+      <label class="checkbox-inline">
+        <input type="checkbox" ngModel name="advance_java"> Advanced Java
+      </label> &nbsp;
+      <label class="checkbox-inline">
+        <input type="checkbox" ngModel name="android"> Android
+      </label> &nbsp;
+      <label class="checkbox-inline">
+        <input type="checkbox" ngModel name="python"> Python
+      </label> &nbsp;
+      <label class="checkbox-inline">
+        <input type="checkbox" ngModel name="hadoop">Hadoop
+      </label> &nbsp;
+      <label class="checkbox-inline">
+        <input type="checkbox" ngModel name="sql"> Oracle SQL
+      </label> &nbsp;
+      <label class="checkbox-inline">
+        <input type="checkbox" ngModel name="admin1"> Admin I
+      </label> &nbsp;
+      <label class="checkbox-inline">
+        <input type="checkbox" ngModel name="admin2"> Admin II
+      </label> &nbsp;
+      <label class="checkbox-inline">
+        <input type="checkbox" ngModel name="php"> Php
+      </label> &nbsp;
+      <label class="checkbox-inline">
+        <input type="checkbox" ngModel name="aws"> AWS
+      </label> &nbsp;
+      <label class="checkbox-inline">
+        <input type="checkbox" ngModel name="c"> C
+      </label> &nbsp; 
+      <label class="checkbox-inline">
+        <input type="checkbox" ngModel name="others"> Others
+      </label> &nbsp; 
+    </div>
+    <div class="form-group">
+        <label for="enquiry">Enquiry</label>
+        <textarea class="form-control" rows="2" cols="2" name="enquiry" id="enquiry" required ngModel #enquiry="ngModel" ></textarea>
+        <div class="alert-danger form-control" *ngIf="enquiry.invalid && enquiry.touched" >Enter the enquiry </div>
+      </div>
+    <button class="btn btn-primary" [disabled]="!f.valid">Submit</button>
+  </form>
+</div>
