@@ -160,8 +160,7 @@ else{
     let submit:boolean;
     submit=window.confirm("Are you sure to submit the form ?");
     if(submit){
-      let y=JSON.stringify(x.value.individual_courses);
-      let z=JSON.parse(y);
+      console.log(x.value);
     }
   }
 }

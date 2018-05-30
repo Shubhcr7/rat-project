@@ -42,8 +42,8 @@
     <label>Packages</label>
     <div class="form-group" >
       <label>Select the desired package</label>
-      <select class="form-control" (change)="package(x.value)" #x="ngModel"  ngModel name="package" required  >
-        <option >None</option>
+      <select class="form-control" (change)="package(x.value)" (change)="fees()" #x="ngModel"  ngModel name="package" required  >
+        <option>None</option>
         <option *ngFor="let package of packages" id={{package.name}} >{{package.name}}</option>
       </select>
       <div class="alert alert-danger" *ngIf="x.invalid && x.touched">select the package</div>
@@ -53,13 +53,13 @@
     <div class="form-group " >
       <div *ngFor="let course of courses">
         <label class="checkbox-inline">
-          <input type="checkbox" ngModel name="{{course.name}}" value={{course.name}} id="{{course.name}}"  [(ngModel)]=course.opted  >{{course.name}}
+          <input type="checkbox" ngModel name="{{course.name}}" value={{course.name}} id="{{course.name}}"  [(ngModel)]=course.opted (change)="fees()">{{course.name}}
         </label> &nbsp;
       </div>
     </div>
   </div>
 <br>
-<button (click)="fees()" type="button" class="btn btn-info" style="margin-bottom: 2%">Calculate Fees</button> 
+<!-- <button (click)="fees()" type="button" class="btn btn-info" style="margin-bottom: 2%">Calculate Fees</button>  -->
   <div class="form-group">
     <label for="totalfees"> Net Fee </label>
     <input pattern="[0-9]*" class="form-control" ngModel name="totalfees" id="totalfees" #totalfees="ngModel" required [(ngModel)]="fee" /> 
@@ -89,6 +89,6 @@
       <label for="enquiry">Special Comments</label>
       <textarea class="form-control" rows="2" cols="2" name="enquiry" id="enquiry"  ngModel #comments="ngModel" ></textarea>
     </div>
-    <button class="btn btn-primary" type="submit" >Submit</button>
+    <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Submit</button>
   </form>
 </div>
