@@ -8,65 +8,32 @@ declare var $:any;
   styleUrls: ['./registration-form.component.css']
 })
 export class RegistrationFormComponent implements OnInit {
-  
-  constructor(private http:Http) { 
-  }
+
   today:string;
   fee:number=0;
   paidfee:number=0;
   feedue:number=this.fee-this.paidfee;
   feedue_flag:boolean=false;
-  //individual course modal
-  courses:any=[
-    {
-    name:'Core_Java',
-    fee:7000,
-    opted:false
-    },
-    {
-      name:'Php',
-      fee:5000,
-      opted:false
-    },
-    {
-      name:'Oracle_SQL',
-      fee:6000,
-      opted:false
-    },
-    {
-      name:'Bigdata_Hadoop',
-      fee:15000,
-      opted:false
-    },
-    {
-      name:'AWS',
-      fee:6000,
-      opted:false
-    },
-    {
-      name:'AdminI',
-      fee:7000,
-      opted:false
-    },
-];
-//package modal
-packages:any=[
-{
-name:'Platinum Package',
-content:'Advance_Java,Oracle_SQL,Android,Php,Core_Java',
-fees:22500
-},
-{
-name:'Gold Package',
-content:'AWS,Bigdata_Hadoop,AdminI,AdminII',
-fees:30000
-},
-{
-name:'Super Saver',
-content:'Bigdata_Hadoop,AWS,Android,Php',
-fees:20000
-}
-]; 
+  packages:any;
+  courses:any;
+  ngOnInit() {
+
+    $('form input').on('keypress', function(e) {
+      return e.which !== 13;
+  });
+
+  }
+
+  
+  constructor(public http:Http) {
+    http.get('http://localhost:3000/package/allpackage/').subscribe(res=>{
+      this.packages=res.json();
+    });
+    http.get('http://localhost:3000/course/allcourse').subscribe(res=>{
+      this.courses=res.json();
+    }); 
+  }
+
   package(x){
 
     this.courses.forEach(element => {
@@ -76,8 +43,8 @@ fees:20000
     this.packages.forEach(pack => {
       if(x==pack.name)
       {
-        let array=pack.content.split(',');
-        array.forEach(element => {
+        // let array=pack.content.split(',');
+        pack.content.forEach(element => {
           this.courses.forEach(course => {
             if(element==course.name)
             {
@@ -108,7 +75,7 @@ fees:20000
       if(x==element.name)
       {
        this.fee=element.fees;
-       y=element.content.split(',');
+       y=element.content;
       }
     });
     
@@ -139,13 +106,7 @@ else{
       this.feedue_flag=false;
     }
   }
-  ngOnInit() {
-
-    $('form input').on('keypress', function(e) {
-      return e.which !== 13;
-  });
-
-  }
+  
   getDate(){
     let now = new Date();
 
@@ -159,8 +120,23 @@ else{
   submit(x){
     let submit:boolean;
     submit=window.confirm("Are you sure to submit the form ?");
-    if(submit){
-      console.log(x.value);
+    if(submit)
+    {
+      let y=x.value.individual_courses;
+      let w:string[]=[];
+     for(let i in y)
+     {
+       if(y[i])
+       {
+         w.push(i);
+      }
+     }
+    x.value.individual_courses=w;
+    this.http.post('http://localhost:3000/register/add_student',x.value).subscribe(
+      res=>{
+        console.log(res);
+      }
+    );
     }
   }
 }

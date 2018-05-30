@@ -15,9 +15,9 @@
       </div>
       <div class="form-group">
         <label for="number">Number</label>
-      <input pattern="[0-9]*" required minlength="10" maxlength="10" class="form-control" ngModel name="number" id="number" #number="ngModel"/>
+      <input pattern="[0-9]*" required minlength="10" maxlength="10" class="form-control" ngModel name="mobile" id="mobile" #mobile="ngModel"/>
     </div>
-    <div *ngIf="number.invalid && number.touched" class="alert-danger">
+    <div *ngIf="mobile.invalid && mobile.touched" class="alert-danger">
       Number is invalid
       <div *ngIf="number.errors.minlength" class="alert-danger">Not a 10 digit number</div>
     </div>
@@ -35,14 +35,14 @@
 
     <div class="form-group">
         <label for="formdate">Registration Date</label>
-         <input type="date" ngModel name="formdate" id="formdate" #formdate="ngModel" ngModel required  class="form-control" [(ngModel)]="today" />
+         <input type="date" ngModel name="registration_date" id="formdate" #formdate="ngModel" ngModel required  class="form-control" [(ngModel)]="today" />
          <div class="alert alert-danger" *ngIf="formdate.invalid && formdate.touched">Enter the registration date  </div>
        </div>
 
     <label>Packages</label>
     <div class="form-group" >
       <label>Select the desired package</label>
-      <select class="form-control" (change)="package(x.value)" (change)="fees()" #x="ngModel"  ngModel name="package" required  >
+      <select class="form-control" (change)="package(x.value)" (change)="fees()" #x="ngModel"  ngModel name="package_opted" required  >
         <option>None</option>
         <option *ngFor="let package of packages" id={{package.name}} >{{package.name}}</option>
       </select>
@@ -62,33 +62,33 @@
 <!-- <button (click)="fees()" type="button" class="btn btn-info" style="margin-bottom: 2%">Calculate Fees</button>  -->
   <div class="form-group">
     <label for="totalfees"> Net Fee </label>
-    <input pattern="[0-9]*" class="form-control" ngModel name="totalfees" id="totalfees" #totalfees="ngModel" required [(ngModel)]="fee" /> 
+    <input pattern="[0-9]*" class="form-control" ngModel name="total_fee" id="totalfees" #totalfees="ngModel" required [(ngModel)]="fee" /> 
     <div *ngIf="totalfees.invalid && totalfees.touched" class="alert-danger d-block">Invalid Amount Entered</div>
   </div>
   
 
   <div class="form-group">
       <label for="feepaid">Fee Paid</label>
-    <input pattern="[0-9]*" class="form-control" ngModel name="feepaid" id="feepaid" #feepaid="ngModel" required [(ngModel)]="paidfee" (keyup)="findDueFee()"  />
+    <input pattern="[0-9]*" class="form-control" ngModel name="fee_paid" id="feepaid" #feepaid="ngModel" required [(ngModel)]="paidfee" (keyup)="findDueFee()"  />
     <div *ngIf="feepaid.invalid && feepaid.touched" class="alert-danger">Invalid Amount Entered</div>
   </div>
 
   <div class="form-group">
       <label for="feepaid">Fee Due</label>
-    <input pattern="[0-9]*" class="form-control" ngModel name="duefee" id="duefee" #duefee="ngModel" required [(ngModel)]="feedue"/>
+    <input pattern="[0-9]*" class="form-control" ngModel name="fee_due" id="duefee" #duefee="ngModel" required [(ngModel)]="feedue"/>
     <div *ngIf="feepaid.invalid && feepaid.touched" class="alert-danger">Invalid Amount Entered</div>
   </div>
 
   <div class="form-group">
       <label for="duedate">Amount Due Date</label>
-       <input type="date" ngModel name="duedate" id="duedate" #duedate="ngModel" ngModel class="form-control" [required]="feedue_flag" />
+       <input type="date" ngModel name="due_date" id="due_date" #duedate="ngModel" ngModel class="form-control" [required]="feedue_flag" />
        <div class="alert alert-danger" *ngIf="duedate.invalid && duedate.touched">Enter the due date</div>
      </div>
 
     <div class="form-group">
       <label for="enquiry">Special Comments</label>
-      <textarea class="form-control" rows="2" cols="2" name="enquiry" id="enquiry"  ngModel #comments="ngModel" ></textarea>
+      <textarea class="form-control" rows="2" cols="2" name="comments" id="comments"  ngModel #comments="ngModel" ></textarea>
     </div>
-    <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Submit</button>
+    <button class="btn btn-primary" type="submit" >Submit</button>
   </form>
 </div>
