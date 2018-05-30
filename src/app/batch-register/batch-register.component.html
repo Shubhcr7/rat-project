@@ -8,12 +8,17 @@
       </div>
       <div class="form-group">
         <label>Choose the subject</label>
-        <select class="form-control" required #subject="ngModel" ngModel name="subject" id="subject" (change)="getValidStudents(subject.value)" >
+        <select class="form-control" required #subject="ngModel" ngModel name="subject" id="subject" (change)="getValidStudents(subject.value)" (change)="getDate()" >
           <option>--select a subject---</option>
           <option *ngFor="let name of subjects">{{name.name}}</option>
         </select>
         <div class="alert alert-danger" *ngIf="subject.invalid && subject.touched">Select a subject</div>
       </div>
+      <div class="form-group">
+        <label>Choose Date</label>
+        <input type="date" class="form-control" name="date" id="date" #date="ngModel" ngModel [(ngModel)]="today" required>
+      </div>
+      <div class="alert alert-danger" *ngIf="date.invalid && date.touched">Date is required</div>
       <div class="form-group">
         <label >Choose the faculty</label>
         <select class="form-control" required #faculty="ngModel" ngModel name="faculty" id="faculty" >
@@ -26,10 +31,13 @@
         <label>Enter the timing</label>
         <input type="text" class="form-control" #time="ngModel" ngModel name="time" id="time" >
       </div>
-      <div class="form-group">
-        <label >Choose the students:-</label>
-        <input type="checkbox" class="form-control" >
+     <div ngModelGroup="batch_students"> 
+      <div class="form-group" *ngFor="let name of students" >
+        <label for="{{name.name}}" class="checkbox-inline"> {{name.name}}
+            <input type="checkbox" class="form-control" name="{{name.mobile}}" id="{{name.name}}" #{{name.name}}="ngModel" ngModel >
+        </label> 
       </div>
+    </div> 
       <div class="form-group text-center">
           <button class="btn btn-primary btn-block" [disabled]="!f.valid" type="submit">Submit</button>
       </div>

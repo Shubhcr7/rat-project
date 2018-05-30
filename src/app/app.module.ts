@@ -8,6 +8,7 @@ import { EnquiryFormComponent } from './enquiry-form/enquiry-form.component';
 import { RegistrationFormComponent } from './registration-form/registration-form.component';
 import { BatchRegisterComponent } from './batch-register/batch-register.component';
 import { SearchStudentComponent } from './search-student/search-student.component';
+import { SearchResultComponent } from './search-result/search-result.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { SearchStudentComponent } from './search-student/search-student.componen
     EnquiryFormComponent,
     RegistrationFormComponent,
     BatchRegisterComponent,
-    SearchStudentComponent
+    SearchStudentComponent,
+    SearchResultComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +28,8 @@ import { SearchStudentComponent } from './search-student/search-student.componen
       {path:'registration',component:RegistrationFormComponent},
       {path:'enquiry',component:EnquiryFormComponent},
       {path:'batch-register',component:BatchRegisterComponent},
-      {path:'search-student',component:SearchStudentComponent}
+      {path:'search-student',component:SearchStudentComponent},
+      {path:'search-student/:username',component:SearchResultComponent},
     ]),
   ],
   providers: [],

@@ -6,12 +6,17 @@
     <div class="form-group">
       <label for="type">Search Criteria</label>
       <select name="type" id="type" ngModel #type="ngModel" class="form-control" required >
-        <option>By Name</option>
+        <option>By Mobile</option>
         <option>By Subject</option>
         <option>By College</option>
       </select>
       <div class="alert alert-danger" *ngIf="type.invalid && type.touched">Select a criteria</div>
     </div>
+    <div class="form-group">
+      <label for="query">Enter search element</label>
+      <input type="text" class="form-control" ngModel #query="ngModel" name="query" id="query" required>
+    </div>
+    <div class="alert alert-danger" *ngIf="query.invalid && query.touched">Search element is required</div>
     <div class="form-group text-center">
       <button class="btn btn-primary btn-block" type="submit" [disabled]="!f.valid">Submit</button>
     </div>
