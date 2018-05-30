@@ -1,0 +1,19 @@
+<div class="container" style="border-style:groove; margin-top:2%">
+  <div class="text-center">
+      <p class="h2">Search for students registered at RAT</p>
+  </div>
+  <form #f="ngForm" (ngSubmit)="submit(f.value)">
+    <div class="form-group">
+      <label for="type">Search Criteria</label>
+      <select name="type" id="type" ngModel #type="ngModel" class="form-control" required >
+        <option>By Name</option>
+        <option>By Subject</option>
+        <option>By College</option>
+      </select>
+      <div class="alert alert-danger" *ngIf="type.invalid && type.touched">Select a criteria</div>
+    </div>
+    <div class="form-group text-center">
+      <button class="btn btn-primary btn-block" type="submit" [disabled]="!f.valid">Submit</button>
+    </div>
+  </form>
+</div>

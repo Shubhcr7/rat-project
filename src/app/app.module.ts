@@ -7,13 +7,15 @@ import {RouterModule} from '@angular/router';
 import { EnquiryFormComponent } from './enquiry-form/enquiry-form.component';
 import { RegistrationFormComponent } from './registration-form/registration-form.component';
 import { BatchRegisterComponent } from './batch-register/batch-register.component';
+import { SearchStudentComponent } from './search-student/search-student.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EnquiryFormComponent,
     RegistrationFormComponent,
-    BatchRegisterComponent
+    BatchRegisterComponent,
+    SearchStudentComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +25,8 @@ import { BatchRegisterComponent } from './batch-register/batch-register.componen
       {path:'',component:RegistrationFormComponent},
       {path:'registration',component:RegistrationFormComponent},
       {path:'enquiry',component:EnquiryFormComponent},
-      {path:'batch-register',component:BatchRegisterComponent}
+      {path:'batch-register',component:BatchRegisterComponent},
+      {path:'search-student',component:SearchStudentComponent}
     ]),
   ],
   providers: [],
