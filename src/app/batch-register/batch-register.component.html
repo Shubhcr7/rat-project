@@ -1,0 +1,32 @@
+<div class="container " style="border-style:groove">
+    <p class="h1" style="text-align:center;">Register a new batch</p>
+    <form #f="ngForm" (ngSubmit)="submit(f)">
+      <div class="form-group">
+        <label> Enter the batch name</label>
+        <input type="text" class="form-control" required #name="ngModel" ngModel name="name" id="name" >
+        <div class="alert alert-danger" *ngIf="name.invalid && name.touched">Enter the batch name</div>
+      </div>
+      <div class="form-group">
+        <label>Choose the subject</label>
+        <select class="form-control" required #subject="ngModel" ngModel name="subject" id="subject" >
+          <option *ngFor="let name of subjects">{{name.name}}</option>
+        </select>
+        <div class="alert alert-danger" *ngIf="subject.invalid && subject.touched">Select a subject</div>
+      </div>
+      <div class="form-group">
+        <label >Choose the faculty</label>
+        <select class="form-control" required #faculty="ngModel" ngModel name="faculty" id="faculty" >
+          <option>Mr. Abhishek Jain</option>
+          <option>Mr. Ritesh Jain</option>
+        </select>
+        <div class="alert alert-danger" *ngIf="faculty.invalid && faculty.touched">Select a faculty</div>
+      </div>
+      <div class="form-group">
+        <label>Enter the timing</label>
+        <input type="text" class="form-control" #time="ngModel" ngModel name="time" id="time" >
+      </div>
+      <div class="form-group text-center">
+          <button class="btn btn-primary btn-block" [disabled]="!f.valid" type="submit">Submit</button>
+      </div>
+    </form> 
+  </div>

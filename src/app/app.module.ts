@@ -6,14 +6,14 @@ import { HttpModule } from '@angular/http';
 import {RouterModule} from '@angular/router';
 import { EnquiryFormComponent } from './enquiry-form/enquiry-form.component';
 import { RegistrationFormComponent } from './registration-form/registration-form.component';
-import { PackagesComponent } from './packages/packages.component';
+import { BatchRegisterComponent } from './batch-register/batch-register.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EnquiryFormComponent,
     RegistrationFormComponent,
-    PackagesComponent
+    BatchRegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +22,8 @@ import { PackagesComponent } from './packages/packages.component';
     RouterModule.forRoot([
       {path:'',component:RegistrationFormComponent},
       {path:'registration',component:RegistrationFormComponent},
-      {path:'enquiry',component:EnquiryFormComponent}
+      {path:'enquiry',component:EnquiryFormComponent},
+      {path:'batch-register',component:BatchRegisterComponent}
     ]),
   ],
   providers: [],

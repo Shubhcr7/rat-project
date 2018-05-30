@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PackagesComponent } from './packages.component';
+import { BatchRegisterComponent } from './batch-register.component';
 
-describe('PackagesComponent', () => {
-  let component: PackagesComponent;
-  let fixture: ComponentFixture<PackagesComponent>;
+describe('BatchRegisterComponent', () => {
+  let component: BatchRegisterComponent;
+  let fixture: ComponentFixture<BatchRegisterComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PackagesComponent ]
+      declarations: [ BatchRegisterComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PackagesComponent);
+    fixture = TestBed.createComponent(BatchRegisterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
