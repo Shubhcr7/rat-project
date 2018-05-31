@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { element } from 'protractor';
 import { Http } from '@angular/http';
 import { Component, OnInit } from '@angular/core';
@@ -13,7 +14,7 @@ export class BatchRegisterComponent implements OnInit {
  subjects;
 students;
 today;
-constructor(public http:Http) {
+constructor(public http:Http,public router:Router) {
   http.get('http://localhost:3000/course/allcourse/').subscribe(res=>{
     this.subjects=res.json();
   })
@@ -53,7 +54,7 @@ getDate(){
 submit(x){
   if(window.confirm('Are you sure to add this batch ?'))
   {
-  let w:number[]=[];
+  let w:string[]=[];
   let y=x.value.batch_students;
   for(let z in y){
     if(y[z]){
@@ -61,15 +62,19 @@ submit(x){
     }
   }
 x.value.batch_students=w;
+console.log(x.value);
+let ab=x.value;
+this.http.post('http://localhost:3000/batch/create_batch',ab).subscribe(res=>{
+  // console.log(res.json());
+});
+window.alert('The batch was successfully registered');
+let router:Router
+this.router.navigate(['/registration'],{ queryParams: { }});
   }
   else{
     return;
   }
-this.http.post('http://localhost:3000/batch/create_batch',x.value).subscribe(res=>{
-console.log(res.json());
-},req=>{
-console.log(req.json());
-});
+
 }
 
 }
