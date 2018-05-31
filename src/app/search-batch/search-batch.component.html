@@ -1,0 +1,18 @@
+<div class="container" style="border-style:groove">
+  <p class="h2" style="text-align:center">Search for batches registered at RAT</p>
+  <br>
+  <form #f="ngForm" (ngSubmit)="submit(f.value)">
+    <div class="form-group">
+      <select name="criteria" id="criteria" class="form-control" required ngModel #criteria="ngModel">
+        <option>By Subject</option>
+        <option>By Faculty</option>
+      </select>
+      <div class="alert alert-danger" *ngIf="criteria.invalid && criteria.touched">Select the search method</div>
+    </div>
+    <div class="form-group">
+      <select name="faculty" id="faculty" class="form-control">
+        <option></option>
+      </select>
+    </div>
+  </form>
+</div>

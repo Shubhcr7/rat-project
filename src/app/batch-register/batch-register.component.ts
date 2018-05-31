@@ -19,6 +19,7 @@ constructor(public http:Http,public router:Router) {
     this.subjects=res.json();
   })
  }
+
 getValidStudents(x){
   let y='http://localhost:3000/batch/'+x;
 
@@ -33,12 +34,7 @@ getValidStudents(x){
 generateCheckBox(){
   
 }
-ngOnInit() {
 
-  $('form input').on('keypress', function(e) {
-    return e.which !== 13;
-  }
-}
 
 getDate(){
   let now = new Date();
@@ -75,6 +71,12 @@ this.router.navigate(['/registration'],{ queryParams: { }});
     return;
   }
 
+}
+ngOnInit() {
+
+  $('form input').on('keypress', function(e) {
+    return e.which !== 13;
+  }
 }
 
 }

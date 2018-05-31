@@ -9,6 +9,7 @@ import { RegistrationFormComponent } from './registration-form/registration-form
 import { BatchRegisterComponent } from './batch-register/batch-register.component';
 import { SearchStudentComponent } from './search-student/search-student.component';
 import { SearchResultComponent } from './search-result/search-result.component';
+import { SearchBatchComponent } from './search-batch/search-batch.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { SearchResultComponent } from './search-result/search-result.component';
     RegistrationFormComponent,
     BatchRegisterComponent,
     SearchStudentComponent,
-    SearchResultComponent
+    SearchResultComponent,
+    SearchBatchComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +31,7 @@ import { SearchResultComponent } from './search-result/search-result.component';
       {path:'enquiry',component:EnquiryFormComponent},
       {path:'batch-register',component:BatchRegisterComponent},
       {path:'search-student',component:SearchStudentComponent},
-      {path:'search-student/:username',component:SearchResultComponent},
+      {path:'search-batch',component:SearchBatchComponent},
     ]),
   ],
   providers: [],
