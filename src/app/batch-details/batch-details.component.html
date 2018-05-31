@@ -1,0 +1,30 @@
+<div class="container" style="border-style:groove">
+  <p class="h2" style="text-align:center">Here are the batch details</p>
+  <table class="table">
+    <thead class="thead-light">
+      <th scope="col">{{batch.name}}</th>
+      <th scope="col">Subject- {{batch.course}}</th>
+      <th scope="col">Faculty- {{batch.faculty}}</th>
+      <th scope="col">Date- {{batch.date}}</th>
+      <th scope="col">Timing- {{batch.time}}</th>
+    </thead>
+  </table>
+</div>
+<div class="container" style="border-style: groove">
+    <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">S.no</th>
+            <th scope="col">Name</th>
+            <th scope="col">Number</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let detail of batch.students;let i=index" [attr.dat-index]="i">
+            <th scope="row">{{i+1}}</th>
+            <td>{{detail.name}}</td>
+            <td>{{detail.mobile}}</td>
+          </tr>
+        </tbody>
+      </table>
+</div>

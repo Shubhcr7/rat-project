@@ -1,0 +1,11 @@
+p.h4{
+    color: rebeccapurple;
+}
+li{
+    color:red
+}
+.list-group-item{
+    padding: 20px;
+    width:400px;
+   
+}

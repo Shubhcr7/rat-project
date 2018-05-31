@@ -1,18 +1,24 @@
-<div class="container" style="border-style:groove">
-  <p class="h2" style="text-align:center">Search for batches registered at RAT</p>
-  <br>
+<div class="container" style="border-style: groove">
+  <p class="h3" style="text-align:center">Search for batches previously registered at RAT</p>
   <form #f="ngForm" (ngSubmit)="submit(f.value)">
     <div class="form-group">
-      <select name="criteria" id="criteria" class="form-control" required ngModel #criteria="ngModel">
-        <option>By Subject</option>
-        <option>By Faculty</option>
+      <label for="faculty">Select the faculty</label>
+      <select name="faculty" id="faculty" ngModel #faculty="ngModel" class="form-control" required>
+        <option>Mr. Abhishek Jain</option>
+        <option>Mr. Ritesh Jain</option>
       </select>
-      <div class="alert alert-danger" *ngIf="criteria.invalid && criteria.touched">Select the search method</div>
+      <div class="alert alert-danger" *ngIf="faculty.invalid && faculty.touched">Select the faculty</div>
     </div>
     <div class="form-group">
-      <select name="faculty" id="faculty" class="form-control">
-        <option></option>
-      </select>
-    </div>
+        <label for="subject">Select the subject</label>
+        <select name="subject" id="subject" ngModel #subject="ngModel" class="form-control" required>
+          <option>---Select subject-----</option>
+          <option *ngFor="let name of courses">{{name.name}}</option>
+        </select>
+        <div class="alert alert-danger" *ngIf="subject.invalid && subject.touched">Select the subject</div>
+      </div>
+    <div class="form-group">
+      <button class="btn btn-primary" [disabled]="!f.valid">Submit</button>
+    </div>  
   </form>
 </div>

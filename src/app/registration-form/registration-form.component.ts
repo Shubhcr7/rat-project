@@ -16,6 +16,8 @@ export class RegistrationFormComponent implements OnInit {
   feedue_flag:boolean=false;
   packages:any;
   courses:any;
+
+  
   ngOnInit() {
 
     $('form input').on('keypress', function(e) {

@@ -10,6 +10,8 @@ import { BatchRegisterComponent } from './batch-register/batch-register.componen
 import { SearchStudentComponent } from './search-student/search-student.component';
 import { SearchResultComponent } from './search-result/search-result.component';
 import { SearchBatchComponent } from './search-batch/search-batch.component';
+import { BatchDetailsComponent } from './batch-details/batch-details.component';
+import { BatchSearchResultComponent } from './batch-search-result/batch-search-result.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { SearchBatchComponent } from './search-batch/search-batch.component';
     BatchRegisterComponent,
     SearchStudentComponent,
     SearchResultComponent,
-    SearchBatchComponent
+    SearchBatchComponent,
+    BatchDetailsComponent,
+    BatchSearchResultComponent
   ],
   imports: [
     BrowserModule,
@@ -32,6 +36,8 @@ import { SearchBatchComponent } from './search-batch/search-batch.component';
       {path:'batch-register',component:BatchRegisterComponent},
       {path:'search-student',component:SearchStudentComponent},
       {path:'search-batch',component:SearchBatchComponent},
+      {path:'batch-details',component:BatchDetailsComponent},
+      {path:'batch-search-result',component:BatchSearchResultComponent},
     ]),
   ],
   providers: [],
