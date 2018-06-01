@@ -8,7 +8,7 @@
         <th scope="col">Email</th>
       </thead>
       <tbody>
-          <tr *ngFor="let detail of batch;let i=index" [attr.dat-index]="i">
+          <tr *ngFor="let detail of student;let i=index" [attr.dat-index]="i">
             <th scope="row">{{i+1}}</th>
             <!-- <td><a [routerLink]="['../batch-details']" [queryParams]="{name: {{detail.name}}, faculty: {{detail.faculty}} }">{{detail.name}}</a></td>  -->
             <td><a href="../batch-details?mobile={{detail.mobile}}" target="_blank">{{detail.name}}</a></td>

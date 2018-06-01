@@ -15,15 +15,21 @@ export class SearchStudentResultComponent implements OnInit {
   this.activatedroute.queryParams.subscribe(param=>{
     if(param['college']){
     let query_college=param['college'];
-    // this.http.get('http://localhost:3000/').subscribe(res=>{
-    //   this.student=res.json();
-    // });
+    let data={
+      "college":query_college
+    };
+    this.http.post('http://localhost:3000/search/by_college',data).subscribe(res=>{
+      this.student=res.json();
+    });
     }
     if(param['subject']){
       let query_subject=param['subject'];
-      // this.http.get('http://localhost:3000/').subscribe(res=>{
-      // this.student=res.json();
-      // });
+      let data={
+        "subject":query_subject
+      };
+      this.http.post('http://localhost:3000/search/by_subject',data).subscribe(res=>{
+      this.student=res.json();
+      });
     }
   });
   }
