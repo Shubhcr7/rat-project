@@ -8,10 +8,10 @@ import { EnquiryFormComponent } from './enquiry-form/enquiry-form.component';
 import { RegistrationFormComponent } from './registration-form/registration-form.component';
 import { BatchRegisterComponent } from './batch-register/batch-register.component';
 import { SearchStudentComponent } from './search-student/search-student.component';
-import { SearchResultComponent } from './search-result/search-result.component';
 import { SearchBatchComponent } from './search-batch/search-batch.component';
 import { BatchDetailsComponent } from './batch-details/batch-details.component';
 import { BatchSearchResultComponent } from './batch-search-result/batch-search-result.component';
+import { SearchStudentResultComponent } from './search-student-result/search-student-result.component';
 
 @NgModule({
   declarations: [
@@ -20,10 +20,10 @@ import { BatchSearchResultComponent } from './batch-search-result/batch-search-r
     RegistrationFormComponent,
     BatchRegisterComponent,
     SearchStudentComponent,
-    SearchResultComponent,
     SearchBatchComponent,
     BatchDetailsComponent,
-    BatchSearchResultComponent
+    BatchSearchResultComponent,
+    SearchStudentResultComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,6 +38,7 @@ import { BatchSearchResultComponent } from './batch-search-result/batch-search-r
       {path:'search-batch',component:SearchBatchComponent},
       {path:'batch-details',component:BatchDetailsComponent},
       {path:'batch-search-result',component:BatchSearchResultComponent},
+      {path:'search-student-result',component:SearchStudentResultComponent},
     ]),
   ],
   providers: [],

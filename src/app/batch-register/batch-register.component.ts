@@ -74,6 +74,7 @@ this.router.navigate(['/registration'],{ queryParams: { }});
 }
 ngOnInit() {
 
+ 
   $('form input').on('keypress', function(e) {
     return e.which !== 13;
   }

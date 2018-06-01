@@ -5,18 +5,33 @@
   <form #f="ngForm" (ngSubmit)="submit(f.value)">
     <div class="form-group">
       <label for="type">Search Criteria</label>
-      <select name="type" id="type" ngModel #type="ngModel" class="form-control" required >
+      <select name="type" id="type" ngModel #type="ngModel" class="form-control" required (change)="display()" >
         <option>By Mobile</option>
         <option>By Subject</option>
         <option>By College</option>
       </select>
       <div class="alert alert-danger" *ngIf="type.invalid && type.touched">Select a criteria</div>
     </div>
-    <div class="form-group">
-      <label for="query">Enter search element</label>
-      <input type="text" class="form-control" ngModel #query="ngModel" name="query" id="query" required>
+    <div class="form-group" *ngIf="criteria_mobile" >
+      <label for="">Enter the mobile number of the student</label>
+     <input type="text" class="form-control" name="mobile" id="mobile" ngModel #mobile="ngModel" pattern="[0-9]*" minlength="10" maxlength="10" required>
+      <div class="alert alert-danger" *ngIf="mobile.invalid && mobile.touched" >Invalid mobile number</div>
     </div>
-    <div class="alert alert-danger" *ngIf="query.invalid && query.touched">Search element is required</div>
+    <div class="form-group" *ngIf="criteria_subject" >
+        <label for="">Select the subject</label>
+      <select name="subject" id="subject" ngModel #subject="ngModel" class="form-control" required>
+        <option *ngFor="let name of subjects">{{name.name}}</option>
+      </select>
+       <div class="alert alert-danger" *ngIf="subject.invalid && subject.touched" >Select the subject</div>
+     </div>
+
+     <div class="form-group" *ngIf="criteria_college" >
+       <label for="">Select the college name</label>
+        <select name="college" id="college" ngModel #subject="ngModel" class="form-control" required>
+          <option *ngFor="let name of college">{{name.name}}</option>
+        </select>
+         <div class="alert alert-danger" *ngIf="college.invalid && college.touched" >Select the college name</div>
+       </div>
     <div class="form-group text-center">
       <button class="btn btn-primary btn-block" type="submit" [disabled]="!f.valid">Submit</button>
     </div>

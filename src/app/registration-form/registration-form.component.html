@@ -19,7 +19,7 @@
     </div>
     <div *ngIf="mobile.invalid && mobile.touched" class="alert-danger">
       Number is invalid
-      <div *ngIf="number.errors.minlength" class="alert-danger">Not a 10 digit number</div>
+      <div *ngIf="mobile.errors.minlength" class="alert-danger">Not a 10 digit number</div>
     </div>
     
     <div class="form-group">
