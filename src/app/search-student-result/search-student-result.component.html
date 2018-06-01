@@ -1,3 +1,20 @@
-<p>
-  search-student-result works!
-</p>
+<div class="container" style="border-style:groove">
+  <p class="h2" style="text-align: center">Here is search result for students with given criteria</p>
+  <table class="table">
+      <thead class="thead-light">
+        <th scope="col">S.No</th>
+        <th scope="col">Name</th>
+        <th scope="col">Number</th>
+        <th scope="col">Email</th>
+      </thead>
+      <tbody>
+          <tr *ngFor="let detail of batch;let i=index" [attr.dat-index]="i">
+            <th scope="row">{{i+1}}</th>
+            <!-- <td><a [routerLink]="['../batch-details']" [queryParams]="{name: {{detail.name}}, faculty: {{detail.faculty}} }">{{detail.name}}</a></td>  -->
+            <td><a href="../batch-details?mobile={{detail.mobile}}" target="_blank">{{detail.name}}</a></td>
+            <td>{{detail.email}}</td>
+            <td>{{detail.mobile}}</td>
+          </tr>
+        </tbody>
+    </table>
+</div>

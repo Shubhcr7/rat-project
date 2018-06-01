@@ -12,17 +12,7 @@ export class SearchStudentComponent implements OnInit {
   criteria_college=false;
   criteria_mobile=false;
   criteria_subject=false;
-  college=[
-    {
-      name:'ABCD'
-    },
-    {
-      name:'EFGH',
-    },
-    {
-      name:'WXYZ'
-    }
-  ];
+  college;
   constructor(public router:Router,public http:Http) { 
   }
 
@@ -30,6 +20,10 @@ export class SearchStudentComponent implements OnInit {
     this.http.get('http://localhost:3000/course/allcourse/').subscribe(res=>{
     this.subjects=res.json();
     });
+
+    this.http.get('http://localhost:3000/batch/get_college/all').subscribe(res=>{
+      this.college=res.json();
+    })
   }
 
   display(){
@@ -53,10 +47,12 @@ export class SearchStudentComponent implements OnInit {
       this.router.navigate(['/search-student-result'],{ queryParams: { x:'lol' }});
     }
     else if(y=='By College'){
-      this.router.navigate(['/search-student-result'],{ queryParams: { x:'pol' }});
+      let x=$('select[name=college] option:selected').text();
+      this.router.navigate(['/search-student-result'],{ queryParams: { college:x }});
     }
     else if(y=='By Subject'){
-      this.router.navigate(['/search-student-result'],{ queryParams: { x:'ldaasdssdsansl' }});
+      let x=$('select[name=subject] option:selected').text();
+      this.router.navigate(['/search-student-result'],{ queryParams: { subject:x }});
     }
     
   }

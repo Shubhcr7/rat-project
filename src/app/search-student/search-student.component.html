@@ -28,7 +28,7 @@
      <div class="form-group" *ngIf="criteria_college" >
        <label for="">Select the college name</label>
         <select name="college" id="college" ngModel #subject="ngModel" class="form-control" required>
-          <option *ngFor="let name of college">{{name.name}}</option>
+          <option *ngFor="let x of college">{{x}}</option>
         </select>
          <div class="alert alert-danger" *ngIf="college.invalid && college.touched" >Select the college name</div>
        </div>
