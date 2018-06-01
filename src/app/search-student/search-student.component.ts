@@ -44,7 +44,8 @@ export class SearchStudentComponent implements OnInit {
   submit(x){
     let y=$('select[name=type] option:selected').text();
     if(y=='By Mobile'){
-      this.router.navigate(['/search-student-result'],{ queryParams: { x:'lol' }});
+      let x=$('input').val();
+      this.router.navigate(['/student-details'],{ queryParams: { mobile: x }});
     }
     else if(y=='By College'){
       let x=$('select[name=college] option:selected').text();
