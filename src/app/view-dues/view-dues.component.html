@@ -1,0 +1,22 @@
+<div class="container" style="border-style: groove">
+  <table class="table">
+    <thead>
+      <th scope="col">Name</th>
+      <th scope="col">Number</th>
+      <th scope="col">Email</th>
+      <th scope="col">Due Fees</th>
+      <th scope="col">Due Date</th>
+      <th scope="col">Send Reminder Mail</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let detail of students">
+        <td>{{detail.name}}</td>
+        <td>{{detail.mobile}}</td>
+        <td>{{detail.email}}</td>
+        <td>₹ {{detail.fee_due}}</td>
+        <td>{{detail.due_date | date}}</td>
+        <td> <button class="btn btn-primary" (click)="sendMail(detail.email)">Send Email</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
