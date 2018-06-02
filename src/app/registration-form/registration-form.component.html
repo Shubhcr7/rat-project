@@ -89,6 +89,6 @@
       <label for="enquiry">Special Comments</label>
       <textarea class="form-control" rows="2" cols="2" name="comments" id="comments"  ngModel #comments="ngModel" ></textarea>
     </div>
-    <button class="btn btn-primary" type="submit" >Submit</button>
+    <button class="btn btn-primary" type="submit" [disabled]="!f.valid" >Submit</button>
   </form>
 </div>

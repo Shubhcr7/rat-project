@@ -1,5 +1,6 @@
 import { Http } from '@angular/http';
 import { Component, OnInit } from '@angular/core';
+declare var $:any;
 @Component({
   selector: 'app-view-dues',
   templateUrl: './view-dues.component.html',
@@ -7,6 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewDuesComponent implements OnInit {
   students;
+  subject;
+  text;
+  data={
+    'subject':'',
+    'text':'',
+    'user':''
+  }
   constructor(public http:Http) { }
 
   ngOnInit() {
@@ -14,16 +22,23 @@ export class ViewDuesComponent implements OnInit {
     this.students=res.json();
     });
   }
-  sendMail(x){
-    let data={
-      'subject':'maaaaka',
-      'text':'nodemailer',
-      'user':x
-    }
-    console.log(data);
-    this.http.post('http://localhost:3000/email',data).subscribe(res=>{
-      console.log(res.json());
+  openModal(email,fee_due)
+  { 
+    $('#sendmail').modal('show');
+    this.subject='Regarding due fees at RAT';
+    this.text="Dear student , your due date has been crossed , kindly deposit the due fees amounting to ₹"+fee_due+" as soon as possible"; 
+    this.data.user=email;
+  }
+  sendMail(formdata)
+  { 
+    this.data.subject=formdata.subject;
+    this.data.text=formdata.text;
+      this.http.post('http://localhost:3000/email',this.data).subscribe(res=>{
+      alert('An email was sent to '+this.data.user);
+      $('#sendmail').modal('hide');
+    },err=>{
+      alert('Email sent fail please try again !');
     })
   }
-
 }
+
