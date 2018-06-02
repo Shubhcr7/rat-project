@@ -10,8 +10,8 @@
       <tbody>
           <tr *ngFor="let detail of student;let i=index" [attr.dat-index]="i">
             <th scope="row">{{i+1}}</th>
-            <!-- <td><a [routerLink]="['../batch-details']" [queryParams]="{name: {{detail.name}}, faculty: {{detail.faculty}} }">{{detail.name}}</a></td>  -->
-            <td><a href="../student-details?mobile={{detail.mobile}}" target="_blank">{{detail.name}}</a></td>
+            <td><a [routerLink]="['../student-details']" [queryParams]="{mobile: detail.mobile }">{{detail.name}}</a></td> 
+            <!-- <td><a href="../student-details?mobile={{detail.mobile}}" target="_blank">{{detail.name}}</a></td> -->
             <td>{{detail.email}}</td>
             <td>{{detail.mobile}}</td>
           </tr>

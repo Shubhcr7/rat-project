@@ -1,6 +1,8 @@
+import { Router } from '@angular/router';
 import { element } from 'protractor';
 import { Http } from '@angular/http';
 import { Component, OnInit } from '@angular/core';
+
 declare var $:any;
 import swal from 'sweetalert';
 @Component({
@@ -24,14 +26,14 @@ export class RegistrationFormComponent implements OnInit {
     $('form input').on('keypress', function(e) {
       return e.which !== 13;
   });
-
   }
 
   
-  constructor(public http:Http) {
+  constructor(public http:Http,public router:Router) {
     http.get('http://localhost:3000/package/allpackage/').subscribe(res=>{
       this.packages=res.json();
     });
+    
     http.get('http://localhost:3000/course/allcourse').subscribe(res=>{
       this.courses=res.json();
     }); 
@@ -123,7 +125,7 @@ else{
   submit(x){
     let submit:boolean;
     let swal_data={
-      title:'Register '+x.value.name+' at RAT',
+      title:'Register '+x.value.name+' at RAT ?',
       text:'After registeration the student will be a part of RAT',
       icon:'info',
       buttons:['Cancel','Yes'],
@@ -142,7 +144,12 @@ else{
              w.push(i);
           }
          }
+        x.value.fee_paid=1000;
+        x.value.fee_due=x.value.total_fee-1000;
         x.value.individual_courses=w;
+        if(x.value.package_opted=='None'){
+          x.value.package_opted='';
+        }
         this.http.post('http://localhost:3000/register/add_student',x.value).subscribe(
           res=>{
             console.log(res.status);
@@ -154,6 +161,7 @@ else{
             }
           }
         );
+        this.router.navigate(['']);
         } 
       }
       else{

@@ -43,6 +43,7 @@
     <div class="form-group" >
       <label>Select the desired package</label>
       <select class="form-control" (change)="package(x.value)" (change)="fees()" (change)="findDueFee()" #x="ngModel"  ngModel name="package_opted" required  >
+        <option value="None">---select any package---</option>
         <option>None</option>
         <option *ngFor="let package of packages" id={{package.name}} >{{package.name}}</option>
       </select>
@@ -67,28 +68,28 @@
   </div>
   
 
-  <div class="form-group">
+  <!-- <div class="form-group">
       <label for="feepaid">Fee Paid</label>
     <input pattern="[0-9]*" class="form-control" ngModel name="fee_paid" id="feepaid" #feepaid="ngModel" required [(ngModel)]="paidfee" (keyup)="findDueFee()"  />
     <div *ngIf="feepaid.invalid && feepaid.touched" class="alert-danger">Invalid Amount Entered</div>
-  </div>
+  </div> -->
 
-  <div class="form-group">
+  <!-- <div class="form-group">
       <label for="feepaid">Fee Due</label>
     <input pattern="[0-9]*" class="form-control" ngModel name="fee_due" id="duefee" #duefee="ngModel" required [(ngModel)]="feedue"/>
     <div *ngIf="feepaid.invalid && feepaid.touched" class="alert-danger">Invalid Amount Entered</div>
-  </div>
+  </div> -->
 
-  <div class="form-group">
+  <!-- <div class="form-group">
       <label for="duedate">Amount Due Date</label>
        <input type="date" ngModel name="due_date" id="due_date" #duedate="ngModel" ngModel class="form-control" [required]="feedue_flag" />
        <div class="alert alert-danger" *ngIf="duedate.invalid && duedate.touched">Enter the due date</div>
-     </div>
+     </div> -->
 
     <div class="form-group">
       <label for="enquiry">Special Comments</label>
       <textarea class="form-control" rows="2" cols="2" name="comments" id="comments"  ngModel #comments="ngModel" ></textarea>
     </div>
-    <button class="btn btn-primary" type="submit" [disabled]="!f.valid" >Submit</button>
+    <button class="btn btn-primary" type="submit"  >Submit</button>
   </form>
 </div>

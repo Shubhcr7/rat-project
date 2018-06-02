@@ -4,6 +4,7 @@ import {FormsModule} from  '@angular/forms';
 import { AppComponent } from './app.component';
 import { HttpModule } from '@angular/http';
 import {RouterModule} from '@angular/router';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { EnquiryFormComponent } from './enquiry-form/enquiry-form.component';
 import { RegistrationFormComponent } from './registration-form/registration-form.component';
 import { BatchRegisterComponent } from './batch-register/batch-register.component';
@@ -16,6 +17,7 @@ import { StudentDetailsComponent } from './student-details/student-details.compo
 import { ViewDuesComponent } from './view-dues/view-dues.component';
 import { FeeSubmitComponent } from './fee-submit/fee-submit.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -32,13 +34,15 @@ import { NavbarComponent } from './navbar/navbar.component';
     ViewDuesComponent,
     FeeSubmitComponent,
     NavbarComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
+    NgbModule.forRoot(),
     RouterModule.forRoot([
-      {path:'',component:RegistrationFormComponent},
+      {path:'',component:HomeComponent},
       {path:'registration',component:RegistrationFormComponent},
       {path:'enquiry',component:EnquiryFormComponent},
       {path:'batch-register',component:BatchRegisterComponent},

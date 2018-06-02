@@ -12,8 +12,8 @@
       <tbody>
           <tr *ngFor="let detail of batch;let i=index" [attr.dat-index]="i">
             <th scope="row">{{i+1}}</th>
-            <!-- <td><a [routerLink]="['../batch-details']" [queryParams]="{name: {{detail.name}}, faculty: {{detail.faculty}} }">{{detail.name}}</a></td>  -->
-            <td><a href="../batch-details?name={{detail.name}}&faculty={{detail.faculty}}" target="_blank">{{detail.name}}</a></td>
+            <td><a [routerLink]="['../batch-details']" [queryParams]="{name: detail.name, faculty: detail.faculty }">{{detail.name}}</a></td> 
+            <!-- <td><a href="../batch-details?name={{detail.name}}&faculty={{detail.faculty}}" target="_blank">{{detail.name}}</a></td> -->
             <td>{{detail.course}}</td>
             <td>{{detail.faculty}}</td>
             <td>{{detail.date}}</td>

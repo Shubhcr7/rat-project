@@ -1,5 +1,5 @@
 <div class="container" style="border-style:groove">
-  <p class="h3" style="text-align: center">Here are the details of {{student.mobile}}</p>
+  <p class="h3" style="text-align: center">Here are the details of {{student.name}}</p>
     <table class="table table-striped" >
         <tbody>
           <tr>
@@ -20,7 +20,7 @@
           </tr>
           <tr>
             <td>Package Opted</td>
-            <td>{{student.package_opted}}</td>
+            <td>{{student?.package_opted}}</td>
           </tr>
           <tr>
             <td>All Subjects</td>
@@ -44,7 +44,7 @@
           </tr>
           <tr>
             <td>Due Date</td>
-            <td>{{student.due_date | date}}</td>
+            <td>{{student.last_due | date}}</td>
           </tr>
           <tr>
             <td>Comments if any</td>

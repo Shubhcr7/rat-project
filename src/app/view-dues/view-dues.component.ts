@@ -34,10 +34,10 @@ export class ViewDuesComponent implements OnInit {
     this.data.subject=formdata.subject;
     this.data.text=formdata.text;
       this.http.post('http://localhost:3000/email',this.data).subscribe(res=>{
-      alert('An email was sent to '+this.data.user);
+        swal("Mail Sent!", "An email was sent to "+this.data.user, "success");
       $('#sendmail').modal('hide');
     },err=>{
-      alert('Email sent fail please try again !');
+      swal("Error Sending Mail !!","The mail was not sent , please check your connection and try again","error");
     })
   }
 }

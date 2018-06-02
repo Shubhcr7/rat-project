@@ -14,7 +14,7 @@
         <td>{{detail.mobile}}</td>
         <td> {{detail.email}}</td>
         <td>₹ {{detail.fee_due}}</td>
-        <td>{{detail.due_date | date}}</td>
+        <td>{{detail.last_due | date}}</td>
         <td> <button class="btn btn-primary" type="button" (click)="openModal(detail.email,detail.fee_due)" >Send Email</button></td>
       </tr>
     </tbody>
