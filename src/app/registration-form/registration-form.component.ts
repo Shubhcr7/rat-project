@@ -2,6 +2,7 @@ import { element } from 'protractor';
 import { Http } from '@angular/http';
 import { Component, OnInit } from '@angular/core';
 declare var $:any;
+import swal from 'sweetalert';
 @Component({
   selector: 'registration-form',
   templateUrl: './registration-form.component.html',
@@ -121,24 +122,43 @@ else{
   }
   submit(x){
     let submit:boolean;
-    submit=window.confirm("Are you sure to submit the form ?");
-    if(submit)
-    {
-      let y=x.value.individual_courses;
-      let w:string[]=[];
-     for(let i in y)
-     {
-       if(y[i])
-       {
-         w.push(i);
-      }
-     }
-    x.value.individual_courses=w;
-    this.http.post('http://localhost:3000/register/add_student',x.value).subscribe(
-      res=>{
-        console.log(res);
-      }
-    );
+    let swal_data={
+      title:'Register '+x.value.name+' at RAT',
+      text:'After registeration the student will be a part of RAT',
+      icon:'info',
+      buttons:['Cancel','Yes'],
+      dangerMode:true
     }
+    swal(swal_data).then((value)=>{
+      if(value)
+      {
+        {
+          let y=x.value.individual_courses;
+          let w:string[]=[];
+         for(let i in y)
+         {
+           if(y[i])
+           {
+             w.push(i);
+          }
+         }
+        x.value.individual_courses=w;
+        this.http.post('http://localhost:3000/register/add_student',x.value).subscribe(
+          res=>{
+            console.log(res.status);
+            console.log(res.statusText);
+            swal("Registration Done !", "The student was successfully registered at RAT !", "success");
+          },err=>{
+            if(err.status==409){
+              swal("Error","This student is already registered at RAT","error");
+            }
+          }
+        );
+        } 
+      }
+      else{
+        swal("You cancelled the registration ", "Registration didn't take place", "warning");
+      }
+    });
   }
 }

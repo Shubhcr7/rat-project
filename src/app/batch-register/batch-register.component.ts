@@ -61,7 +61,6 @@ x.value.batch_students=w;
 console.log(x.value);
 let ab=x.value;
 this.http.post('http://localhost:3000/batch/create_batch',ab).subscribe(res=>{
-  // console.log(res.json());
 });
 window.alert('The batch was successfully registered');
 let router:Router

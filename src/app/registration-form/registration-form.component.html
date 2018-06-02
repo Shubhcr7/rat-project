@@ -42,7 +42,7 @@
     <label>Packages</label>
     <div class="form-group" >
       <label>Select the desired package</label>
-      <select class="form-control" (change)="package(x.value)" (change)="fees()" #x="ngModel"  ngModel name="package_opted" required  >
+      <select class="form-control" (change)="package(x.value)" (change)="fees()" (change)="findDueFee()" #x="ngModel"  ngModel name="package_opted" required  >
         <option>None</option>
         <option *ngFor="let package of packages" id={{package.name}} >{{package.name}}</option>
       </select>
@@ -53,7 +53,7 @@
     <div class="form-group " >
       <div *ngFor="let course of courses">
         <label class="checkbox-inline">
-          <input type="checkbox" ngModel name="{{course.name}}" value={{course.name}} id="{{course.name}}"  [(ngModel)]=course.opted (change)="fees()">{{course.name}}
+          <input type="checkbox" ngModel name="{{course.name}}" value={{course.name}} id="{{course.name}}"  [(ngModel)]=course.opted (change)="fees()" (change)="findDueFee()">{{course.name}}
         </label> &nbsp;
       </div>
     </div>

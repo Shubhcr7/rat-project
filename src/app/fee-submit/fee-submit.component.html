@@ -1,0 +1,53 @@
+<div class="container" style="border-style: groove">
+  <p class="h3" style="text-align: center">Fee submission for students registered at RAT</p>
+<form #f="ngForm" (ngSubmit)="submit(f)">
+  <div class="form-group">
+    <label for="mobile" class="col-form-label">Enter student's mobile number</label>
+      <input type="text" class="form-control" name="mobile" id="mobile" #mobile="ngModel" ngModel required pattern="[0-9]*" minlength="10" maxlength="10" >
+      <div class="alert alert-danger" *ngIf="mobile.invalid && mobile.touched">Invalid mobile number</div>
+  </div>
+  <div class="form-group">
+    <button class="btn btn-primary btn-lg form-control" [disabled]="!f.valid">Submit</button>
+  </div>
+</form>
+</div>
+<div class="container" style="border-style:groove" *ngIf="ispresent">
+    <p class="h3" style="text-align: center">Here are the details of {{student.mobile}}</p>
+      <table class="table table-striped" >
+          <tbody>
+            <tr>
+              <td>Name  </td>
+              <td>{{student.name}}</td>
+            </tr>
+            <tr>
+              <td>Mobile Number</td>
+              <td>{{student.mobile}} </td>
+            </tr>
+            <tr>
+              <td>Package Opted</td>
+              <td>{{student.package_opted}}</td>
+            </tr>
+            <tr>
+              <td>All Subjects</td>
+              <td>{{student.individual_courses}}</td>
+            </tr>
+            <tr>
+              <td>Total Fee</td>
+              <td>{{student.total_fee}}</td>
+            </tr>
+            <tr>
+              <td>Fee Paid</td>
+              <td>{{student.fee_paid}}</td>
+            </tr>
+            <tr>
+              <td>Fee Due</td>
+              <td>{{student.fee_due}}</td>
+            </tr>
+            <tr>
+              <td>Due Date</td>
+              <td>{{student.due_date | date}}</td>
+            </tr>
+            </tbody>
+        </table>
+  </div>
+  
