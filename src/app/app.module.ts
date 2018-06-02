@@ -15,6 +15,7 @@ import { SearchStudentResultComponent } from './search-student-result/search-stu
 import { StudentDetailsComponent } from './student-details/student-details.component';
 import { ViewDuesComponent } from './view-dues/view-dues.component';
 import { FeeSubmitComponent } from './fee-submit/fee-submit.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { FeeSubmitComponent } from './fee-submit/fee-submit.component';
     StudentDetailsComponent,
     ViewDuesComponent,
     FeeSubmitComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
