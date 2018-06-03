@@ -1,0 +1,50 @@
+.container{
+    margin-left:200px; 
+}
+img{
+    width: 100px;
+    height: 100px;
+}
+.logo{
+    margin-left:110px;
+    position: absolute;
+    margin-top: -100px;
+}
+.name{
+    position: absolute;
+    margin-top:10px;
+}
+.date{
+    position: absolute;
+    margin-left:600px;
+    margin-top:10px;
+}
+.package{
+    position: absolute;
+    margin-top:45px;
+}
+.course{
+    position: absolute;
+    margin-top:45px;
+    margin-left:250px;
+}
+.table{
+    position: absolute;
+    width: 720px;
+    margin-top:100px;    
+}
+.sign{
+    position: absolute;
+    margin-top: 350px;
+    margin-left: 500px;
+}
+@page{
+    size:A4;
+    margin:0;
+}
+@media print{
+    html , body{
+        width: 210mm;
+        height:297mm;
+    }
+}

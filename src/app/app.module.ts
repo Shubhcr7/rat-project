@@ -19,6 +19,8 @@ import { FeeSubmitComponent } from './fee-submit/fee-submit.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { FeeSubmitStudentComponent } from './fee-submit-student/fee-submit-student.component';
+import { PrintFeeReceiptComponent } from './print-fee-receipt/print-fee-receipt.component';
+import { MypipePipe } from './mypipe.pipe';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,8 @@ import { FeeSubmitStudentComponent } from './fee-submit-student/fee-submit-stude
     NavbarComponent,
     HomeComponent,
     FeeSubmitStudentComponent,
+    PrintFeeReceiptComponent,
+    MypipePipe,
   ],
   imports: [
     BrowserModule,
@@ -57,6 +61,7 @@ import { FeeSubmitStudentComponent } from './fee-submit-student/fee-submit-stude
       {path:'dues',component:ViewDuesComponent},
       {path:'fee-submit',component:FeeSubmitComponent},
       {path:'fee-submit-student',component:FeeSubmitStudentComponent},
+      {path:'fee-receipt',component:PrintFeeReceiptComponent}
     ]),
   ],
   providers: [],

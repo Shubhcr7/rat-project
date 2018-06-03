@@ -1,0 +1,51 @@
+<div class="container">
+    <img src="./../../assets/rat-logo.png" alt="" >
+  <div>
+    <p class="h5 logo">
+      ROAD AHEAD TECHNOLOGIES (INDIA) PVT. LTD.
+      <br>
+      A-13 VIKAS MARG,MANSINGHPURA,NEAR GATTA,TONK ROAD,JAIPUR
+      <br>
+      logon:www.ratindia.com Contact:9950947408
+    </p>
+  </div>
+  <label class="name"><p class="h6">Name: {{student.name}}</p></label>
+  <label class="date"><p class="h6">Date: {{date |date}}</p></label>
+  <label class="package"><p class="h6">Package: {{student.package_opted}}</p></label>   
+  <label class="course"><p class="h6">Course(s): {{student.individual_courses}}</p></label>
+
+  <table class="table">
+    <thead>
+      <th>Particulars</th>
+      <th>Amount Deposited</th>
+      <th>Date</th>
+      <th>Amount Due</th>
+      <th>Due Date</th>
+    </thead>
+    <tbody>
+      <tr *ngIf="instalment[0]">
+        <td>Installment I</td>
+        <td>{{instalment[0]}}</td>
+        <td>{{pd[0] | mypipe }}</td>
+        <td>{{ad[0] }}</td>
+        <td>{{dd[0] | mypipe}}</td>
+      </tr>
+      <tr *ngIf="instalment[1]">
+          <td>Installment II</td>
+          <td>{{instalment[1]}}</td>
+          <td>{{pd[1]|mypipe }}</td>
+          <td>{{ad[1]}}</td>
+          <td>{{dd[1] | mypipe}}</td>
+        </tr>
+      <tr *ngIf="instalment[2]">
+          <td>Installment III</td>
+          <td>{{instalment[2]}}</td>
+          <td>{{pd[2] | mypipe}}</td>
+          <td>None</td>
+          <td>None</td>
+          </tr>
+    </tbody>
+  </table>
+
+  <p class="h5 sign">Authorized Signatory</p>
+</div>
