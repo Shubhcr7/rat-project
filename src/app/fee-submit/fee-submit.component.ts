@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Http } from '@angular/http';
 import { Component, OnInit } from '@angular/core';
 import swal from 'sweetalert';
@@ -8,9 +9,8 @@ declare var $:any;
   styleUrls: ['./fee-submit.component.css']
 })
 export class FeeSubmitComponent implements OnInit {
-  ispresent:boolean=false;
-  student;
-  constructor(public http:Http) { }
+
+  constructor(public http:Http,public router:Router) { }
 
   ngOnInit() {
   //   $('form input').on('keypress', function(e) {
@@ -22,11 +22,9 @@ export class FeeSubmitComponent implements OnInit {
       "mobile":x.value.mobile
     };
     this.http.post('http://localhost:3000/search/by_mobile',data).subscribe(res=>{
-  this.student=res.json();
-  this.ispresent=true;
+  this.router.navigate(['./fee-submit-student'],{queryParams:{'mobile':x.value.mobile}});
   },err=>{
     if(err.status==404){
-      this.ispresent=false;
       swal("Oops!", "No such student is registered at RAT!", "error")
     }
   })

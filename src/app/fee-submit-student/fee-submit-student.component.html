@@ -1,0 +1,108 @@
+<div class="container" style="border-style: groove">
+  <p class="h3" style="text-align: center">Fee submission for {{student.name}}</p>
+  <table class="table table-striped" >
+    <tbody>
+      <tr>
+        <td>Name  </td>
+        <td>{{student.name}}</td>
+      </tr>
+      <tr>
+        <td>Mobile Number</td>
+        <td>{{student.mobile}} </td>
+      </tr>
+      <tr>
+        <td>Package Opted</td>
+        <td>{{student.package_opted}}</td>
+      </tr>
+      <tr>
+        <td>All Subjects</td>
+        <td>{{student.individual_courses}}</td>
+      </tr>
+      <tr>
+        <td>Total Fee</td>
+        <td>{{student.total_fee}}</td>
+      </tr>
+      <tr>
+        <td>Fee Paid</td>
+        <td>{{student.fee_paid}}</td>
+      </tr>
+      <tr>
+        <td>Fee Due</td>
+        <td>{{student.fee_due}}</td>
+      </tr>
+      <tr>
+        <td>Due Date</td>
+        <td>{{student.last_due | date}}</td>
+      </tr>
+    <tr >
+      <td *ngIf="instalment[0]"><table class="table table-striped">
+          <tr>
+            <td>Instalment 1</td>
+            <td>{{instalment[0]}}</td>
+          </tr>
+          <tr>
+            <td>Pay Date</td>
+            <td>{{pd[0] | date}}</td>
+          </tr>
+          <tr>
+              <td>Due Date</td>
+              <td>{{dd[0] | date}}</td>
+          </tr>
+        </table>
+        </td>
+        <td *ngIf="instalment[1]">
+            <table class="table table-striped">
+                <tr>
+                  <td>Instalment 2</td>
+                  <td>{{instalment[1]}}</td>
+                </tr>
+                <tr>
+                    <td>Pay Date</td>
+                    <td>{{pd[1] | date}}</td>
+                  </tr>
+                <tr>
+                    <td>Due Date</td>
+                    <td>{{dd[1] | date}}</td>
+                </tr>
+              </table>
+        </td>
+        <td *ngIf="instalment[2]">
+            <table class="table table-striped">
+                <tr>
+                  <td>Instalment 3</td>
+                  <td>{{instalment[2]}}</td>
+                </tr>
+                <tr>
+                    <td>Pay Date</td>
+                    <td>{{pd[2] | date}}</td>
+                  </tr>
+                <tr>
+                    <td>Due Date</td>
+                    <td>{{dd[2] | date}}</td>
+                </tr>
+              </table>
+        </td>
+    </tr>
+    <!-- <tr>
+        <td>Comments if any</td>
+        <td>{{student.comments}}</td>
+      </tr> -->
+      </tbody>
+  </table>
+  <form #f="ngForm" (ngSubmit)="submit(f)" *ngIf="show_form">
+    <div class="form-group">
+      <label for="apaid">Enter the amount</label>
+      <input type="text" class="form-control" required name="apaid" id="apaid" [(ngModel)]="apaid" (keyup)="disableDate()">
+    </div>
+    <div class="alert alert-danger" *ngIf="apaid.invalid && apaid.touched">Enter the amount</div>
+    <div class="form-control" *ngIf="show_date" >
+      <label for="due_date">Enter next due date if any</label>
+      <input type="date" class="form-control" name="due_date" id="duedate" #due_date="ngModel" ngModel [required]="third" (keyup)="disableDate()"  >
+      <div class="alert alert-danger" *ngIf="due_date.invalid && due_date.touched">Date is required</div>
+    </div>
+    
+    <div class="form-group">
+      <button class="btn btn-primary btn-lg form-control" type="submit" [disabled]="!f.valid">Pay Fees</button>
+    </div>
+  </form>
+</div>

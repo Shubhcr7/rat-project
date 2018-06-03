@@ -18,6 +18,7 @@ import { ViewDuesComponent } from './view-dues/view-dues.component';
 import { FeeSubmitComponent } from './fee-submit/fee-submit.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
+import { FeeSubmitStudentComponent } from './fee-submit-student/fee-submit-student.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { HomeComponent } from './home/home.component';
     FeeSubmitComponent,
     NavbarComponent,
     HomeComponent,
+    FeeSubmitStudentComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,6 +56,7 @@ import { HomeComponent } from './home/home.component';
       {path:'student-details',component:StudentDetailsComponent},
       {path:'dues',component:ViewDuesComponent},
       {path:'fee-submit',component:FeeSubmitComponent},
+      {path:'fee-submit-student',component:FeeSubmitStudentComponent},
     ]),
   ],
   providers: [],

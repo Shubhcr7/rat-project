@@ -11,19 +11,19 @@ var students=[];
 })
 
 export class NavbarComponent implements OnInit {
-  students;
+  // students;
   search = (text$: Observable<string>) =>
     text$.pipe(
       debounceTime(200),
       distinctUntilChanged(),
       map(term => term.length < 2 ? []
-        :this.students.filter(v => v.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0, 10))
+        :students.filter(v => v.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0, 10))
     );
   constructor(public http:Http,public router:Router) { }
 
   ngOnInit() {
     this.http.get('http://localhost:3000/getAll').subscribe(res=>{
-    this.students=res.json();
+    students=res.json();
     // console.log(students);
     })
   } 
