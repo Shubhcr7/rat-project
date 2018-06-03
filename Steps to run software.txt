@@ -1,0 +1,10 @@
+1-Install MongoDB setup
+2-make the db and log folders as per requirement
+3-make the mongod.conf file and write the paths.
+4- in cmd run mongod.exe --conifg 'path of config file' --install
+5-service is now installed
+6-install xampp and in it apache as a service.
+7-write the script in batch file as per requirement
+8-make sure to write the net commands in it to start the services.
+9-make the exe file if wanted !
+10-run the exe.

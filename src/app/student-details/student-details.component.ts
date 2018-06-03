@@ -15,7 +15,7 @@ export class StudentDetailsComponent implements OnInit {
     this.activatedroute.queryParams.subscribe(param=>{
       if(param['mobile']){
         let data={
-          "mobile":param['mobile'];
+          "mobile":param['mobile']
         }
         this.http.post('http://localhost:3000/search/by_mobile',data).subscribe(res=>{
           this.student=res.json();
@@ -23,7 +23,7 @@ export class StudentDetailsComponent implements OnInit {
       }
      else if(param['name']){
       let data={
-        "name":param['name'];
+        "name":param['name']
       } 
       this.http.post('http://localhost:3000/search/by_name',data).subscribe(res=>{
     this.student=res.json();
