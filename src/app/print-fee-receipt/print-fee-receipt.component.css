@@ -51,3 +51,7 @@ img{
 .table{
     border-style: groove;
 }
+.print{
+    position: absolute;
+    margin-top:380px;
+}

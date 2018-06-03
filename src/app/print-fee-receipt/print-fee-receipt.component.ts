@@ -1,7 +1,7 @@
 import { Http } from '@angular/http';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-
+declare var $:any;
 @Component({
   selector: 'print-fee-receipt',
   templateUrl: './print-fee-receipt.component.html',
@@ -14,6 +14,7 @@ export class PrintFeeReceiptComponent implements OnInit {
   public instalment;
   public pd;
   public ad;
+  public hide_btn:boolean=false;
   constructor(public http:Http,public activatedroute:ActivatedRoute) {
     this.student=[];
     this.dd=[];
@@ -21,12 +22,16 @@ export class PrintFeeReceiptComponent implements OnInit {
     this.instalment=[];
     this.ad=[];
    }
-
+   print(){
+    $("#print").hide();
+     window.print();
+    $("#print").show();
+   }
   ngOnInit() {
     this.activatedroute.queryParams.subscribe(params=>{
       this.http.post('http://localhost:3000/search/by_mobile',{mobile:params['mobile']}).subscribe(res=>{
         this.student=res.json();
-        console.log(res.json());
+        // console.log(res.json());
         if(res.json().package_opted=='')
         {
           this.student.package_opted='None';
