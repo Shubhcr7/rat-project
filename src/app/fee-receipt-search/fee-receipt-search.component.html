@@ -1,0 +1,13 @@
+<div class="container" style="border-style: groove">
+  <form #f="ngForm" (ngSubmit)="submit(f)">
+      <p class="h3" style="text-align: center">Enter the student's number</p>
+    <div class="form-group">
+      <label for="number"></label>
+      <input type="text" class="form-control" name="number" id="number" #number="ngModel" ngModel required minlength="10" maxlength="10">
+      <div class="alert alert-danger" *ngIf="number.invalid && number.touched">Invalid Number</div>
+    </div>
+    <div class="form-group">
+      <button class="btn btn-primary form-control btn-lg" [disabled]="!f.valid">Submit</button>
+    </div>
+  </form>
+</div>
