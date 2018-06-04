@@ -1,3 +1,4 @@
+import { environment } from './../../environments/environment';
 import { Router } from '@angular/router';
 import { element } from 'protractor';
 import { Http } from '@angular/http';
@@ -15,13 +16,13 @@ export class BatchRegisterComponent implements OnInit {
 students;
 today;
 constructor(public http:Http,public router:Router) {
-  http.get('http://localhost:3000/course/allcourse/').subscribe(res=>{
+  http.get(environment.url+'course/allcourse/').subscribe(res=>{
     this.subjects=res.json();
   })
  }
 
 getValidStudents(x){
-  let y='http://localhost:3000/batch/'+x;
+  let y=environment.url+'batch/'+x;
 
   this.http.get(y).subscribe(res=>{
     console.log(res);
@@ -60,7 +61,7 @@ submit(x){
 x.value.batch_students=w;
 console.log(x.value);
 let ab=x.value;
-this.http.post('http://localhost:3000/batch/create_batch',ab).subscribe(res=>{
+this.http.post(environment.url+'batch/create_batch',ab).subscribe(res=>{
 });
 window.alert('The batch was successfully registered');
 let router:Router

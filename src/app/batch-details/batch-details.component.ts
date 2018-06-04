@@ -1,3 +1,4 @@
+import { environment } from './../../environments/environment';
 import { Http } from '@angular/http';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
@@ -19,7 +20,7 @@ export class BatchDetailsComponent implements OnInit {
       faculty:faculty,
       name:name
     }
-    this.http.post('http://localhost:3000/batch/search_one_batch',data).subscribe(res=>{
+    this.http.post(environment.url+'batch/search_one_batch',data).subscribe(res=>{
       this.batch=res.json();
       console.log(res.json());
     });
