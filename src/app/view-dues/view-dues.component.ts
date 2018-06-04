@@ -1,6 +1,7 @@
 import { Http } from '@angular/http';
 import { Component, OnInit } from '@angular/core';
 declare var $:any;
+import { environment } from './../../environments/environment';
 @Component({
   selector: 'app-view-dues',
   templateUrl: './view-dues.component.html',
@@ -18,7 +19,7 @@ export class ViewDuesComponent implements OnInit {
   constructor(public http:Http) { }
 
   ngOnInit() {
-    this.http.get('http://localhost:3000/search/duefee').subscribe(res=>{
+    this.http.get(environment.url+'search/duefee').subscribe(res=>{
     this.students=res.json();
     });
   }
@@ -33,7 +34,7 @@ export class ViewDuesComponent implements OnInit {
   { 
     this.data.subject=formdata.subject;
     this.data.text=formdata.text;
-      this.http.post('http://localhost:3000/email',this.data).subscribe(res=>{
+      this.http.post(environment.url+'email',this.data).subscribe(res=>{
         swal("Mail Sent!", "An email was sent to "+this.data.user, "success");
       $('#sendmail').modal('hide');
     },err=>{
