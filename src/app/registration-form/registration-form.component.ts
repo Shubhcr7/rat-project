@@ -2,6 +2,7 @@ import { Router } from '@angular/router';
 import { element } from 'protractor';
 import { Http } from '@angular/http';
 import { Component, OnInit } from '@angular/core';
+import { environment } from './../../environments/environment';
 
 declare var $:any;
 import swal from 'sweetalert';
@@ -30,11 +31,11 @@ export class RegistrationFormComponent implements OnInit {
 
   
   constructor(public http:Http,public router:Router) {
-    http.get('http://localhost:3000/package/allpackage/').subscribe(res=>{
+    http.get(environment.url+'package/allpackage/').subscribe(res=>{
       this.packages=res.json();
     });
     
-    http.get('http://localhost:3000/course/allcourse').subscribe(res=>{
+    http.get(environment.url+'course/allcourse').subscribe(res=>{
       this.courses=res.json();
     }); 
   }
@@ -150,7 +151,7 @@ else{
         if(x.value.package_opted=='None'){
           x.value.package_opted='';
         }
-        this.http.post('http://localhost:3000/register/add_student',x.value).subscribe(
+        this.http.post(environment.url+'register/add_student',x.value).subscribe(
           res=>{
             console.log(res.status);
             console.log(res.statusText);
