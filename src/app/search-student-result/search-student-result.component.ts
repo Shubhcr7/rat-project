@@ -1,3 +1,4 @@
+import  swal  from 'sweetalert';
 import { ActivatedRoute } from '@angular/router';
 import { Http } from '@angular/http';
 import { Component, OnInit } from '@angular/core';
