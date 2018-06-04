@@ -1,4 +1,5 @@
 import { Router } from '@angular/router';
+import { environment } from './../../environments/environment';
 import { Http } from '@angular/http';
 import { Component, OnInit } from '@angular/core';
 import swal from 'sweetalert';
@@ -21,7 +22,7 @@ export class FeeSubmitComponent implements OnInit {
     let data={
       "mobile":x.value.mobile
     };
-    this.http.post('http://localhost:3000/search/by_mobile',data).subscribe(res=>{
+    this.http.post(environment.url+'search/by_mobile',data).subscribe(res=>{
   this.router.navigate(['./fee-submit-student'],{queryParams:{'mobile':x.value.mobile}});
   },err=>{
     if(err.status==404){
