@@ -2,6 +2,7 @@ import { Http } from '@angular/http';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 declare var $:any;
+import { environment } from './../../environments/environment';
 @Component({
   selector: 'print-fee-receipt',
   templateUrl: './print-fee-receipt.component.html',
@@ -29,7 +30,7 @@ export class PrintFeeReceiptComponent implements OnInit {
    }
   ngOnInit() {
     this.activatedroute.queryParams.subscribe(params=>{
-      this.http.post('http://localhost:3000/search/by_mobile',{mobile:params['mobile']}).subscribe(res=>{
+      this.http.post(environment.url+'search/by_mobile',{mobile:params['mobile']}).subscribe(res=>{
         this.student=res.json();
         // console.log(res.json());
         if(res.json().package_opted=='')

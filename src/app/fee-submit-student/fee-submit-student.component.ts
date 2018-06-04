@@ -3,6 +3,7 @@ import swal from 'sweetalert';
 import { Http } from '@angular/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { environment } from './../../environments/environment';
 @Component({
   selector: 'fee-submit-student',
   templateUrl: './fee-submit-student.component.html',
@@ -27,7 +28,7 @@ constructor(public activatedroute:ActivatedRoute,public http:Http,public router:
 
   ngOnInit() {
  this.activatedroute.queryParams.subscribe(params=>{
- this.http.post('http://localhost:3000/search/by_mobile',{'mobile':params['mobile']}).subscribe(res=>{
+ this.http.post(environment.url+'search/by_mobile',{'mobile':params['mobile']}).subscribe(res=>{
    this.student=res.json();
   //  console.log(res.json());
     if(res.json().fee_due==0){
@@ -71,7 +72,7 @@ submit(x){
   swal(swal_data).then((value)=>
   {
     if(value){
-      this.http.post('http://localhost:3000/update/fee_details',data).subscribe(res=>{
+      this.http.post(environment.url+'update/fee_details',data).subscribe(res=>{
         swal("Fee paid","Deposited fees amounting to "+data.apaid,"success");
         this.router.navigate(['']);
       },err=>{
