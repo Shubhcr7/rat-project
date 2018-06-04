@@ -2,6 +2,7 @@ import { Http } from '@angular/http';
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 declare var $:any;
+import { environment } from './../../environments/environment';
 @Component({
   selector: 'search-student',
   templateUrl: './search-student.component.html',
@@ -17,11 +18,11 @@ export class SearchStudentComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.http.get('http://localhost:3000/course/allcourse/').subscribe(res=>{
+    this.http.get(environment.url+'course/allcourse/').subscribe(res=>{
     this.subjects=res.json();
     });
 
-    this.http.get('http://localhost:3000/batch/get_college/all').subscribe(res=>{
+    this.http.get(environment.url+'batch/get_college/all').subscribe(res=>{
       this.college=res.json();
     })
   }
