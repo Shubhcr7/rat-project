@@ -2,6 +2,7 @@ import { Http } from '@angular/http';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 declare var $:any;
+import { environment } from './../../environments/environment';
 @Component({
   selector: 'search-batch',
   templateUrl: './search-batch.component.html',
@@ -16,7 +17,7 @@ export class SearchBatchComponent implements OnInit {
       return e.which !== 13;
   });
   
-  this.http.get('http://localhost:3000/course/allcourse').subscribe(res=>{
+  this.http.get(environment.url+'course/allcourse').subscribe(res=>{
     this.courses=res.json();
   });
   }
