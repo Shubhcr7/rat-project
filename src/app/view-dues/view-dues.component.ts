@@ -1,3 +1,4 @@
+import  swal  from 'sweetalert';
 import { Http } from '@angular/http';
 import { Component, OnInit } from '@angular/core';
 declare var $:any;
@@ -21,6 +22,10 @@ export class ViewDuesComponent implements OnInit {
   ngOnInit() {
     this.http.get(environment.url+'search/duefee').subscribe(res=>{
     this.students=res.json();
+    },err=>{
+      if(err.status=404){
+        swal("Woaaahh!! , No Dues","Currently no student has any fee dues","success");
+      }
     });
   }
   openModal(email,fee_due)
