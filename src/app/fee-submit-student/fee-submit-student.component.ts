@@ -1,3 +1,4 @@
+import { MypipePipe } from './../mypipe.pipe';
 import swal from 'sweetalert';
 import { Http } from '@angular/http';
 import { ActivatedRoute, Router } from '@angular/router';

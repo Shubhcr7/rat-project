@@ -32,7 +32,7 @@
       </tr>
       <tr>
         <td>Due Date</td>
-        <td>{{student.last_due | date}}</td>
+        <td>{{student.last_due | mypipe}}</td>
       </tr>
     <tr >
       <td *ngIf="instalment[0]"><table class="table table-striped">
@@ -42,11 +42,11 @@
           </tr>
           <tr>
             <td>Pay Date</td>
-            <td>{{pd[0] | date}}</td>
+            <td>{{pd[0] | mypipe}}</td>
           </tr>
           <tr>
               <td>Due Date</td>
-              <td>{{dd[0] | date}}</td>
+              <td>{{dd[0] | mypipe}}</td>
           </tr>
         </table>
         </td>
@@ -58,11 +58,11 @@
                 </tr>
                 <tr>
                     <td>Pay Date</td>
-                    <td>{{pd[1] | date}}</td>
+                    <td>{{pd[1] | mypipe}}</td>
                   </tr>
                 <tr>
                     <td>Due Date</td>
-                    <td>{{dd[1] | date}}</td>
+                    <td>{{dd[1] | mypipe}}</td>
                 </tr>
               </table>
         </td>
@@ -74,11 +74,11 @@
                 </tr>
                 <tr>
                     <td>Pay Date</td>
-                    <td>{{pd[2] | date}}</td>
+                    <td>{{pd[2] | mypipe}}</td>
                   </tr>
                 <tr>
                     <td>Due Date</td>
-                    <td>{{dd[2] | date}}</td>
+                    <td>{{dd[2] | mypipe}}</td>
                 </tr>
               </table>
         </td>
