@@ -1,6 +1,7 @@
 import { ActivatedRoute } from '@angular/router';
 import { Http } from '@angular/http';
 import { Component, OnInit } from '@angular/core';
+import { environment } from './../../environments/environment';
 @Component({
   selector: 'search-student-result',
   templateUrl: './search-student-result.component.html',
@@ -18,7 +19,7 @@ export class SearchStudentResultComponent implements OnInit {
     let data={
       "college":query_college
     };
-    this.http.post('http://localhost:3000/search/by_college',data).subscribe(res=>{
+    this.http.post(environment.url+'search/by_college',data).subscribe(res=>{
       this.student=res.json();
     });
     }
@@ -27,7 +28,7 @@ export class SearchStudentResultComponent implements OnInit {
       let data={
         "subject":query_subject
       };
-      this.http.post('http://localhost:3000/search/by_subject',data).subscribe(res=>{
+      this.http.post(environment.url+'search/by_subject',data).subscribe(res=>{
       this.student=res.json();
       });
     }
