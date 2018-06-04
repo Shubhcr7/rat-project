@@ -1,3 +1,4 @@
+import  swal  from 'sweetalert';
 import { environment } from './../../environments/environment';
 import { Router } from '@angular/router';
 import { element } from 'protractor';
@@ -49,28 +50,37 @@ getDate(){
 }
 
 submit(x){
-  if(window.confirm('Are you sure to add this batch ?'))
-  {
-  let w:string[]=[];
-  let y=x.value.batch_students;
-  for(let z in y){
-    if(y[z]){
-      w.push(z);
-    }
-  }
-x.value.batch_students=w;
-console.log(x.value);
-let ab=x.value;
-this.http.post(environment.url+'batch/create_batch',ab).subscribe(res=>{
-});
-window.alert('The batch was successfully registered');
-let router:Router
-this.router.navigate(['/registration'],{ queryParams: { }});
-  }
-  else{
-    return;
-  }
 
+  let swal_data={
+    title:'Register the batch '+x.value.name+' at RAT ?',
+    text:'Review the students added to the batch if you want to',
+    buttons:['Cancel','Yes'],
+    dangerMode:true
+  }
+  swal(swal_data).then(value=>{
+    if(value){
+      let w:string[]=[];
+      let y=x.value.batch_students;
+      for(let z in y){
+        if(y[z]){
+        w.push(z);
+      }
+    }
+  x.value.batch_students=w;
+  let ab=x.value;
+this.http.post(environment.url+'batch/create_batch',ab).subscribe(res=>{
+  swal("Registered","The batch was successfully made","success");
+  let router:Router
+  this.router.navigate(['./'],{ queryParams: { }});
+},err=>{
+  swal("Failure","The Batch Registration Failed Due To Server Error","error");
+});
+
+}
+  else{
+    swal("Warning","You cancelled the batch registraion","warning");
+  }  
+  });
 }
 ngOnInit() {
 
