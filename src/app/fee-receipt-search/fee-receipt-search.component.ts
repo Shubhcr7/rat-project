@@ -1,3 +1,4 @@
+import { environment } from './../../environments/environment';
 import swal from 'sweetalert';
 import { Http } from '@angular/http';
 import { Router } from '@angular/router';
@@ -14,7 +15,7 @@ export class FeeReceiptSearchComponent implements OnInit {
   ngOnInit() {
   }
 submit(x){
-  this.http.post('http://localhost:3000/search/by_mobile',{'mobile':x.value.number}).subscribe(res=>{
+  this.http.post(environment.url+'search/by_mobile',{'mobile':x.value.number}).subscribe(res=>{
     this.router.navigate(['./fee-receipt-print'],{queryParams:{mobile:x.value.number}});},err=>{
       swal("Not Found","No such students exist at RAT ","error");
     });  
