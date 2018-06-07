@@ -1,27 +1,37 @@
 <div class="container" style="border-style: groove">
+  
+  <div class="form-group">
+        <button class="btn btn-primary form-control" (click)="print()">Take Excel</button>
+  </div>
+
   <table class="table" id="excel">
-    <thead>
+    <!-- <thead>
       <th scope="col">Name</th>
       <th scope="col">Number</th>
       <th scope="col">Email</th>
       <th scope="col">Due Fees</th>
       <th scope="col">Due Date</th>
       <th scope="col">Send Reminder Mail</th>
-    </thead>
+    </thead> -->
     <tbody>
+      <tr style="font-weight: bold">
+        <td>Name</td>
+        <td>Number</td>
+        <td>Email</td>
+        <td>Due Fees</td>
+        <td>Due Date</td>
+        <td class="noExl">Send Reminder Mail</td>
+      </tr>
       <tr *ngFor="let detail of students">
         <td>{{detail.name}}</td>
         <td>{{detail.mobile}}</td>
         <td> {{detail.email}}</td>
         <td>₹ {{detail.fee_due}}</td>
         <td>{{detail.last_due | date}}</td>
-        <td> <button class="btn btn-primary" type="button" (click)="openModal(detail.email,detail.fee_due)" >Send Email</button></td>
+        <td class="noExl"> <button class="btn btn-primary" type="button" (click)="openModal(detail.email,detail.fee_due)" >Send Email</button></td>
       </tr>
     </tbody>
   </table>
-  <div class="form-group">
-    <button class="btn btn-primary form-control" (click)="print()">Take Excel</button>
-  </div>
 </div>
 
 
