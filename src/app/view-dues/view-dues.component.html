@@ -5,23 +5,17 @@
   </div>
 
   <table class="table" id="excel">
-    <!-- <thead>
+  <thead (click)="sort()">
+    <tr>
       <th scope="col">Name</th>
       <th scope="col">Number</th>
       <th scope="col">Email</th>
-      <th scope="col">Due Fees</th>
+      <th scope="col" data-sort="int" data-sort-order="desc">Due Fees</th>
       <th scope="col">Due Date</th>
-      <th scope="col">Send Reminder Mail</th>
-    </thead> -->
+      <th scope="col" class="noExl">Send Reminder Mail</th>
+    </tr>
+    </thead>
     <tbody>
-      <tr style="font-weight: bold">
-        <td>Name</td>
-        <td>Number</td>
-        <td>Email</td>
-        <td>Due Fees</td>
-        <td>Due Date</td>
-        <td class="noExl">Send Reminder Mail</td>
-      </tr>
       <tr *ngFor="let detail of students">
         <td>{{detail.name}}</td>
         <td>{{detail.mobile}}</td>

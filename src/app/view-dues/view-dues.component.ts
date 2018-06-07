@@ -32,6 +32,9 @@ export class ViewDuesComponent implements OnInit {
       }
     });
   }
+  sort(){
+    $('#excel').stupidtable();
+  }
   print(){
     $('#excel').table2excel({
       exclude:".noExl",

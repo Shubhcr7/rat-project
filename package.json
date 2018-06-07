@@ -28,6 +28,7 @@
     "jquery-table2excel": "^1.1.1",
     "popper.js": "^1.14.3",
     "rxjs": "^6.0.0",
+    "stupid-table-plugin": "^1.1.3",
     "sweetalert": "^2.1.0",
     "zone.js": "^0.8.26"
   },

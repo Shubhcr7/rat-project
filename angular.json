@@ -30,7 +30,9 @@
               "./node_modules/jquery/dist/jquery.min.js",
               "./node_modules/bootstrap/dist/js/bootstrap.min.js",
               "./node_modules/sweetalert/dist/sweetalert.min.js",
-              "./node_modules/jquery-table2excel/dist/jquery.table2excel.min.js"
+              "./node_modules/jquery-table2excel/dist/jquery.table2excel.min.js",
+              "./node_modules/stupid-table-plugin/stupidtable.min.js"
+              
             ]
           },
           "configurations": {

@@ -44,7 +44,7 @@ import { StaffLoginComponent } from './staff-login/staff-login.component';
     PrintFeeReceiptComponent,
     MypipePipe,
     FeeReceiptSearchComponent,
-    StaffLoginComponent,
+    StaffLoginComponent
   ],
   imports: [
     BrowserModule,
