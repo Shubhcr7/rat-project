@@ -24,6 +24,7 @@ import { MypipePipe } from './mypipe.pipe';
 import { FeeReceiptSearchComponent } from './fee-receipt-search/fee-receipt-search.component';
 import { StaffLoginComponent } from './staff-login/staff-login.component';
 import { CheckLoginService } from './check-login.service';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { CheckLoginService } from './check-login.service';
     PrintFeeReceiptComponent,
     MypipePipe,
     FeeReceiptSearchComponent,
-    StaffLoginComponent
+    StaffLoginComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,
@@ -69,6 +71,7 @@ import { CheckLoginService } from './check-login.service';
       {path:'fee-submit-student',component:FeeSubmitStudentComponent},
       {path:'fee-receipt',component:FeeReceiptSearchComponent},
       {path:'fee-receipt-print',component:PrintFeeReceiptComponent},
+      {path:'**',component:ErrorPageComponent},
     ]),
   ],
   providers: [CheckLoginService],
