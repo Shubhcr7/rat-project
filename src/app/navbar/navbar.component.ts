@@ -6,6 +6,7 @@ import {Observable} from 'rxjs';
 import {debounceTime, distinctUntilChanged, map} from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 var students:any; 
+declare var $:any;
 @Component({
   selector: 'navbar',
   templateUrl: './navbar.component.html',
@@ -28,11 +29,15 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit() {
+    $("#logout").hide();
     if(sessionStorage.getItem(environment.branch)=='tr'){
       this.branch='Tonk Road';
     }
     else if(sessionStorage.getItem(environment.branch)=='pn'){
       this.branch='Pratap Nagar';
+    }
+    if(this.branch=='Tonk Road' || this.branch=='Pratap Nagar'){
+    $("#logout").show();
     }
     this.http.get(environment.url+'getAll').subscribe(res=>{
     students=res.json();
@@ -56,6 +61,7 @@ logout(){
   swal(swal_data).then((value)=>{
     if(value){
       sessionStorage.clear();
+      $('#logout').hide();
       swal("Successfully logged out","You have been successfully logged out","success");
       this.router.navigate(['./staff-login']);
     }
