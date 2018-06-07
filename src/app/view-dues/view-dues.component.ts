@@ -3,6 +3,7 @@ import { Http } from '@angular/http';
 import { Component, OnInit } from '@angular/core';
 declare var $:any;
 import { environment } from './../../environments/environment';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-view-dues',
   templateUrl: './view-dues.component.html',
@@ -17,9 +18,12 @@ export class ViewDuesComponent implements OnInit {
     'text':'',
     'user':''
   }
-  constructor(public http:Http) { }
+  constructor(public http:Http,public router:Router) { }
 
   ngOnInit() {
+    if(sessionStorage.getItem(environment.branch)!='tr'){
+    this.router.navigate(['./']);
+    }
     this.http.get(environment.url+'search/duefee').subscribe(res=>{
     this.students=res.json();
     },err=>{

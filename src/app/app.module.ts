@@ -22,6 +22,7 @@ import { FeeSubmitStudentComponent } from './fee-submit-student/fee-submit-stude
 import { PrintFeeReceiptComponent } from './print-fee-receipt/print-fee-receipt.component';
 import { MypipePipe } from './mypipe.pipe';
 import { FeeReceiptSearchComponent } from './fee-receipt-search/fee-receipt-search.component';
+import { StaffLoginComponent } from './staff-login/staff-login.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { FeeReceiptSearchComponent } from './fee-receipt-search/fee-receipt-sear
     PrintFeeReceiptComponent,
     MypipePipe,
     FeeReceiptSearchComponent,
+    StaffLoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,6 +53,7 @@ import { FeeReceiptSearchComponent } from './fee-receipt-search/fee-receipt-sear
     NgbModule.forRoot(),
     RouterModule.forRoot([
       {path:'',component:HomeComponent},
+      {path:'staff-login',component:StaffLoginComponent},
       {path:'registration',component:RegistrationFormComponent},
       {path:'enquiry',component:EnquiryFormComponent},
       {path:'batch-register',component:BatchRegisterComponent},
