@@ -21,7 +21,7 @@ export class ViewDuesComponent implements OnInit {
   constructor(public http:Http,public router:Router) { }
 
   ngOnInit() {
-    if(sessionStorage.getItem(environment.branch)!='tr'){
+    if(sessionStorage.getItem(environment.branch)!='TR'){
     this.router.navigate(['./']);
     }
     this.http.get(environment.url+'search/duefee').subscribe(res=>{
