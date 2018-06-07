@@ -23,6 +23,7 @@ import { PrintFeeReceiptComponent } from './print-fee-receipt/print-fee-receipt.
 import { MypipePipe } from './mypipe.pipe';
 import { FeeReceiptSearchComponent } from './fee-receipt-search/fee-receipt-search.component';
 import { StaffLoginComponent } from './staff-login/staff-login.component';
+import { CheckLoginService } from './check-login.service';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,7 @@ import { StaffLoginComponent } from './staff-login/staff-login.component';
       {path:'fee-receipt-print',component:PrintFeeReceiptComponent},
     ]),
   ],
-  providers: [],
+  providers: [CheckLoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

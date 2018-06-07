@@ -1,3 +1,4 @@
+import { CheckLoginService } from './../check-login.service';
 import  swal  from 'sweetalert';
 import { Http } from '@angular/http';
 import { Component, OnInit } from '@angular/core';
@@ -18,12 +19,12 @@ export class ViewDuesComponent implements OnInit {
     'text':'',
     'user':''
   }
-  constructor(public http:Http,public router:Router) { }
+  constructor(public http:Http,public router:Router,service:CheckLoginService) {
+    service.isValid();
+   }
 
   ngOnInit() {
-    if(sessionStorage.getItem(environment.branch)!='TR'){
-    this.router.navigate(['./']);
-    }
+   
     this.http.get(environment.url+'search/duefee').subscribe(res=>{
     this.students=res.json();
     },err=>{
