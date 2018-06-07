@@ -1,3 +1,4 @@
+import { CheckLoginService } from './../check-login.service';
 import { environment } from './../../environments/environment';
 import swal from 'sweetalert';
 import { Http } from '@angular/http';
@@ -10,7 +11,9 @@ import { Component, OnInit,} from '@angular/core';
 })
 export class FeeReceiptSearchComponent implements OnInit {
 
-  constructor(public router:Router,public http:Http) { }
+  constructor(public router:Router,public http:Http,service:CheckLoginService) {
+    service.isValid();
+   }
 
   ngOnInit() {
   }

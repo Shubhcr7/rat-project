@@ -1,3 +1,4 @@
+import { CheckLoginService } from './../check-login.service';
 import { MypipePipe } from './../mypipe.pipe';
 import swal from 'sweetalert';
 import { Http } from '@angular/http';
@@ -18,12 +19,13 @@ public third:boolean=true;
 public show_date:boolean=true;
 public show_form:boolean=true;
 public apaid:number;
-constructor(public activatedroute:ActivatedRoute,public http:Http,public router:Router) {
+constructor(public activatedroute:ActivatedRoute,public http:Http,public router:Router,service :CheckLoginService) {
     this.student={} ;
     this.instalment=[];
     this.dd=[];
     this.pd=[];
     this.apaid=0;
+    service.isValid();
   }
 
   ngOnInit() {

@@ -1,3 +1,4 @@
+import { CheckLoginService } from './../check-login.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Http } from '@angular/http';
 import { Component, OnInit } from '@angular/core';
@@ -10,7 +11,9 @@ import { environment } from './../../environments/environment';
 })
 export class StudentDetailsComponent implements OnInit {
   student:any;
-  constructor(public http:Http,public activatedroute:ActivatedRoute,public router:Router) { }
+  constructor(public http:Http,public activatedroute:ActivatedRoute,public router:Router,service:CheckLoginService) {
+    service.isValid();
+   }
 
   ngOnInit() {
     let y,z

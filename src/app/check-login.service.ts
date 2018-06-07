@@ -11,7 +11,7 @@ export class CheckLoginService {
   }
   isValid()
   {
-    if(sessionStorage.getItem(environment.branch)!='TR' || sessionStorage.getItem(environment.branch)!='PN' ){
+    if(sessionStorage.getItem(environment.branch)!='TR' && sessionStorage.getItem(environment.branch)!='PN' ){
       this.router.navigate(['./staff-login']);
     }
   }

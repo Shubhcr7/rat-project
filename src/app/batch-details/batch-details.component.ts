@@ -1,3 +1,4 @@
+import { CheckLoginService } from './../check-login.service';
 import { environment } from './../../environments/environment';
 import { Http } from '@angular/http';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -9,7 +10,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BatchDetailsComponent implements OnInit {
   batch;
-  constructor(public http:Http,public activatedroute: ActivatedRoute) {
+  constructor(public http:Http,public activatedroute: ActivatedRoute,service:CheckLoginService) {
+    service.isValid();
   }
 
   ngOnInit() {

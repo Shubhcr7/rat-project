@@ -1,3 +1,4 @@
+import { CheckLoginService } from './../check-login.service';
 import  swal  from 'sweetalert';
 import { environment } from './../../environments/environment';
 import { Router } from '@angular/router';
@@ -16,7 +17,8 @@ export class BatchRegisterComponent implements OnInit {
  subjects;
 students;
 today;
-constructor(public http:Http,public router:Router) {
+constructor(public http:Http,public router:Router,service: CheckLoginService) {
+  service.isValid();
   http.get(environment.url+'course/allcourse/').subscribe(res=>{
     this.subjects=res.json();
   })

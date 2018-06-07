@@ -1,3 +1,4 @@
+import { CheckLoginService } from './../check-login.service';
 import { Http } from '@angular/http';
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
@@ -14,7 +15,8 @@ export class SearchStudentComponent implements OnInit {
   criteria_mobile=false;
   criteria_subject=false;
   college;
-  constructor(public router:Router,public http:Http) { 
+  constructor(public router:Router,public http:Http,service :CheckLoginService) {
+    service.isValid(); 
   }
 
   ngOnInit() {

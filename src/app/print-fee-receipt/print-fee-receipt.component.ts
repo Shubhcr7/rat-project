@@ -1,3 +1,4 @@
+import { CheckLoginService } from './../check-login.service';
 import { Http } from '@angular/http';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
@@ -16,12 +17,13 @@ export class PrintFeeReceiptComponent implements OnInit {
   public pd;
   public ad;
   public hide_btn:boolean=false;
-  constructor(public http:Http,public activatedroute:ActivatedRoute) {
+  constructor(public http:Http,public activatedroute:ActivatedRoute,service:CheckLoginService) {
     this.student=[];
     this.dd=[];
     this.pd=[];
     this.instalment=[];
     this.ad=[];
+    service.isValid();
    }
    print(){
     $("#print").hide();

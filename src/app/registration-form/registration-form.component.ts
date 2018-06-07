@@ -1,3 +1,4 @@
+import { CheckLoginService } from './../check-login.service';
 import { Router } from '@angular/router';
 import { element } from 'protractor';
 import { Http } from '@angular/http';
@@ -30,7 +31,8 @@ export class RegistrationFormComponent implements OnInit {
   }
 
   
-  constructor(public http:Http,public router:Router) {
+  constructor(public http:Http,public router:Router,service : CheckLoginService) {
+    service.isValid();
     http.get(environment.url+'package/allpackage/').subscribe(res=>{
       this.packages=res.json();
     });

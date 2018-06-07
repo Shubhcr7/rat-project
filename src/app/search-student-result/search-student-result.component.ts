@@ -1,3 +1,4 @@
+import { CheckLoginService } from './../check-login.service';
 import  swal  from 'sweetalert';
 import { ActivatedRoute } from '@angular/router';
 import { Http } from '@angular/http';
@@ -10,7 +11,9 @@ import { environment } from './../../environments/environment';
 })
 export class SearchStudentResultComponent implements OnInit {
   student;
-  constructor(public activatedroute:ActivatedRoute,public http:Http) { }
+  constructor(public activatedroute:ActivatedRoute,public http:Http,service :CheckLoginService) {
+    service.isValid();
+   }
 
   ngOnInit() {
   

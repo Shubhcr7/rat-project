@@ -1,3 +1,4 @@
+import { CheckLoginService } from './../check-login.service';
 import { Http } from '@angular/http';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
@@ -10,7 +11,9 @@ import { environment } from './../../environments/environment';
 })
 export class SearchBatchComponent implements OnInit {
   courses;
-  constructor(public router:Router,public http:Http) { }
+  constructor(public router:Router,public http:Http,service:CheckLoginService) {
+    service.isValid();
+   }
 
   ngOnInit() {
     $('form input').on('keypress', function(e) {

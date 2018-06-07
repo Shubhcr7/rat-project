@@ -1,3 +1,4 @@
+import { CheckLoginService } from './../check-login.service';
 import { Router } from '@angular/router';
 import { environment } from './../../environments/environment';
 import { Http } from '@angular/http';
@@ -11,7 +12,9 @@ declare var $:any;
 })
 export class FeeSubmitComponent implements OnInit {
 
-  constructor(public http:Http,public router:Router) { }
+  constructor(public http:Http,public router:Router,service :CheckLoginService) {
+    service.isValid();
+   }
 
   ngOnInit() {
   //   $('form input').on('keypress', function(e) {
