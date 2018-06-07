@@ -32,6 +32,13 @@ export class ViewDuesComponent implements OnInit {
       }
     });
   }
+  print(){
+    $('#excel').table2excel({
+      exclude:".noExl",
+      name:"Worksheet",
+      filename:"abcd"
+    });
+  }
   openModal(email,fee_due)
   { 
     $('#sendmail').modal('show');
