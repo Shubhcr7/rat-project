@@ -1,3 +1,4 @@
+import { CheckLoginService } from './../check-login.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Http } from '@angular/http';
 import { Component, OnInit } from '@angular/core';
@@ -12,7 +13,7 @@ var students:any;
 })
 
 export class NavbarComponent implements OnInit {
-  
+  public branch;
   public search;
   public students;
   constructor(public http:Http,public router:Router) { 
@@ -27,6 +28,12 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit() {
+    if(sessionStorage.getItem(environment.branch)=='tr'){
+      this.branch='Tonk Road';
+    }
+    else if(sessionStorage.getItem(environment.branch)=='pn'){
+      this.branch='Pratap Nagar';
+    }
     this.http.get(environment.url+'getAll').subscribe(res=>{
     students=res.json();
     // console.log(students);
@@ -34,6 +41,27 @@ export class NavbarComponent implements OnInit {
   } 
 submit(x){
   this.router.navigate([ 'student-details' ], { queryParams: { name: x.value.name} });
+  location.reload();
 
+}
+logout(){
+  
+  let swal_data={
+    title:'Logout ?',
+    text:'You will need to login again to access the data',
+    icon:'info',
+    buttons:['Cancel','Yes'],
+    dangerMode:true
+  }
+  swal(swal_data).then((value)=>{
+    if(value){
+      sessionStorage.clear();
+      swal("Successfully logged out","You have been successfully logged out","success");
+      this.router.navigate(['./staff-login']);
+    }
+    else{
+      swal("Did not log out","You choose not to log out","info");
+    }
+  })
 }
 }

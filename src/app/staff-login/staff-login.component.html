@@ -5,8 +5,8 @@
   <form class="form-signin" #f="ngForm" (ngSubmit)="submit(f.value)">
       <select name="branch" id="branch" class="form-control" ngModel #branch="ngModel" required autofocus>
         <option value="">Select Branch</option>
-        <option value="TR">Tonk Road</option>
-        <option value="PN">Pratap Nagar</option>
+        <option value="tr">Tonk Road</option>
+        <option value="pn">Pratap Nagar</option>
       </select>
       <div class="alert alert-danger" *ngIf="branch.invalid && branch.touched">Select the branch!!!</div>
       <input class="form-control" type="password" required="" placeholder="Enter Password" name="pwd" id="pwd" ngModel #pwd="ngModel">
