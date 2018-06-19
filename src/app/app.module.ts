@@ -25,6 +25,7 @@ import { FeeReceiptSearchComponent } from './fee-receipt-search/fee-receipt-sear
 import { StaffLoginComponent } from './staff-login/staff-login.component';
 import { CheckLoginService } from './check-login.service';
 import { ErrorPageComponent } from './error-page/error-page.component';
+import { AddNewPackageComponent } from './add-new-package/add-new-package.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { ErrorPageComponent } from './error-page/error-page.component';
     MypipePipe,
     FeeReceiptSearchComponent,
     StaffLoginComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
+    AddNewPackageComponent
   ],
   imports: [
     BrowserModule,
@@ -71,6 +73,7 @@ import { ErrorPageComponent } from './error-page/error-page.component';
       {path:'fee-submit-student',component:FeeSubmitStudentComponent},
       {path:'fee-receipt',component:FeeReceiptSearchComponent},
       {path:'fee-receipt-print',component:PrintFeeReceiptComponent},
+      {path:'add-package',component:AddNewPackageComponent},
       {path:'**',component:ErrorPageComponent},
     ]),
   ],

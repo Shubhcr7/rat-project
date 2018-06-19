@@ -46,7 +46,7 @@ export class NavbarComponent implements OnInit {
   } 
 submit(x){
   this.router.navigate([ 'student-details' ], { queryParams: { name: x.value.name} });
-  location.reload();
+  // location.reload();
 
 }
 logout(){

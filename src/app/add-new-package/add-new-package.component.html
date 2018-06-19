@@ -1,0 +1,28 @@
+<div class="container">
+  <p class="h3" style="text-align: center" >Create a new package</p>
+  <form #f=ngForm (ngSubmit)=submit(f.value)>
+    <div class="form-group">
+      <label for="name">Enter the package name</label>
+      <input type="text" class="form-control" name="name" id="name" ngModel #name="ngModel" required >
+      <div class="alert alert-danger" *ngIf="name.invalid && name.touched">Package name is required</div>
+    </div>
+    <div class="form-group">
+      <label for="fees">Enter the fees</label>
+      <input type="number" class="form-control" name="fees" id="fees" ngModel #fees="ngModel" required>
+      <div class="alert alert-danger" *ngIf="fees.invalid && fees.touched">Package fees is required</div>
+    </div>
+    
+    <label>Select The Package Courses</label>
+    <div ngModelGroup="content">    
+      <div class="form-group" >
+        <div *ngFor="let course of courses">
+          <label class="checkbox-inline">
+            <input type="checkbox" ngModel name="{{course.name}}" value={{course.name}} id="{{course.name}}"  [(ngModel)]=course.opted >{{course.name}}
+          </label> &nbsp;
+        </div>
+      </div>
+    </div>
+
+   <button type="submit" class="btn btn-primary btn-lg form-control" [disabled]="!f.valid" >Submit</button> 
+  </form>
+</div>
