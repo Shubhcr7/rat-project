@@ -165,6 +165,7 @@ else{
           }
         );
         this.router.navigate(['']);
+        location.reload();
         } 
       }
       else{

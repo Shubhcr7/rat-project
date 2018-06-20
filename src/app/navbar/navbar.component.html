@@ -7,7 +7,7 @@
   
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
+            <!-- <li class="nav-item active">
               <a class="nav-link" routerLink="./registration">Registration<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
@@ -15,7 +15,19 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" routerLink="./dues">View Fee Dues</a>
+            </li> -->
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Main</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown02">
+                <a class="dropdown-item" routerLink="./registration">Register Student </a>
+                <a class="dropdown-item" routerLink="./fee-submit">Pay Fees</a>
+                <a class="dropdown-item" routerLink="./dues">View Fee Dues</a>
+                <a class="dropdown-item" routerLink="./add-package">Register Package</a>
+                <a class="dropdown-item" routerLink="./add-course">Register Course </a>
+              </div>
             </li>
+
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle"  id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Student</a>
               <div class="dropdown-menu" aria-labelledby="dropdown01">

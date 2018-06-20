@@ -27,6 +27,7 @@ import { CheckLoginService } from './check-login.service';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { AddNewPackageComponent } from './add-new-package/add-new-package.component';
 import { AddNewCourseComponent } from './add-new-course/add-new-course.component';
+import { UpdateCourseComponent } from './update-course/update-course.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { AddNewCourseComponent } from './add-new-course/add-new-course.component
     ErrorPageComponent,
     AddNewPackageComponent,
     AddNewCourseComponent,
+    UpdateCourseComponent,
   ],
   imports: [
     BrowserModule,
