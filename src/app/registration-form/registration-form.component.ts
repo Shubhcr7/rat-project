@@ -74,7 +74,7 @@ export class RegistrationFormComponent implements OnInit {
     if(x=='None'){
       this.courses.forEach(course => {
         if(course.opted){
-        this.fee=this.fee + course.fee;
+        this.fee=this.fee + course.fees;
         }
       });
     }
@@ -90,7 +90,7 @@ export class RegistrationFormComponent implements OnInit {
     this.courses.forEach(course => {
      if( y.indexOf(course.name)==-1 && course.opted==true)
      {
-       this.fee=this.fee + course.fee;
+       this.fee=this.fee + course.fees;
       // console.log(course.name);
      }
      

@@ -26,6 +26,7 @@ import { StaffLoginComponent } from './staff-login/staff-login.component';
 import { CheckLoginService } from './check-login.service';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { AddNewPackageComponent } from './add-new-package/add-new-package.component';
+import { AddNewCourseComponent } from './add-new-course/add-new-course.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { AddNewPackageComponent } from './add-new-package/add-new-package.compon
     FeeReceiptSearchComponent,
     StaffLoginComponent,
     ErrorPageComponent,
-    AddNewPackageComponent
+    AddNewPackageComponent,
+    AddNewCourseComponent,
   ],
   imports: [
     BrowserModule,
@@ -74,6 +76,7 @@ import { AddNewPackageComponent } from './add-new-package/add-new-package.compon
       {path:'fee-receipt',component:FeeReceiptSearchComponent},
       {path:'fee-receipt-print',component:PrintFeeReceiptComponent},
       {path:'add-package',component:AddNewPackageComponent},
+      {path:'add-course',component:AddNewCourseComponent},
       {path:'**',component:ErrorPageComponent},
     ]),
   ],

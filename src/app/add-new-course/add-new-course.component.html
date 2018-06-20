@@ -1,0 +1,19 @@
+<div class="container">
+  <p class="h3" style="text-align: center">Add a new course</p>
+
+  <form #f="ngForm" (ngSubmit)="submit(f.value)">
+    <div class="form-group">
+      <label for="name">Course Name:</label>
+      <input type="text" class="form-control" required name="name" id="name" #name="ngModel" ngModel>
+      <div class="alert alert-danger" *ngIf="name.invalid && name.touched">Name is required</div>
+    </div>
+    <div class="form-group">
+      <label for="fees">Course Fee:</label>
+      <input type="number" class="form-control" required name="fees" id="fees" #fees="ngModel" ngModel>
+      <div class="alert alert-danger" *ngIf="fees.invalid && fees.touched">Course fee is required</div>
+    </div>
+    <div class="form-control">
+      <button class="btn btn-primary btn-lg form-control" [disabled]="!f.valid">Submit</button>
+    </div>
+  </form>
+</div>
