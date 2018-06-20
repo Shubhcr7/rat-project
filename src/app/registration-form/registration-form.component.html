@@ -21,6 +21,15 @@
       Number is invalid
       <div *ngIf="mobile.errors.minlength" class="alert-danger">Not a 10 digit number</div>
     </div>
+
+    <div class="form-group">
+      <label for="alternate_number">Alternate Number</label>
+    <input pattern="[0-9]*" minlength="10" maxlength="10" class="form-control" ngModel name="alternate_mobile" id="alternate_mobile" #alternate_mobile="ngModel"/>
+  </div>
+  <div *ngIf="alternate_mobile.invalid && alternate_mobile.touched" class="alert-danger">
+    Number is invalid
+    <div *ngIf="alternate_mobile.errors.minlength" class="alert-danger">Not a 10 digit number</div>
+  </div>
     
     <div class="form-group">
       <label for="email">Email</label>
@@ -31,6 +40,28 @@
       <label for="college">College</label>
       <input type="text" class="form-control" ngModel #college="ngModel" name="college" id="college" required pattern="[a-zA-Z][a-zA-Z ]+" (change)="getDate()" />
       <div class="alert-danger form-control" *ngIf="college.invalid && college.touched" >Invalid College Name</div>
+    </div>
+
+    <div class="form-group">
+      <label for="father_name">Father's Name</label>
+      <input class="form-control" ngModel required name="father_name" id="father_name"  #father_name="ngModel" pattern="[a-zA-Z][a-zA-Z ]+"/>
+      <div class="form-control alert-danger" *ngIf="father_name.invalid && father_name.touched">Invalid Name</div>
+      </div>
+
+      <div class="form-group">
+        <label for="number">Father's Number</label>
+      <input pattern="[0-9]*" required minlength="10" maxlength="10" class="form-control" ngModel name="father_mobile" id="father_mobile" #father_mobile="ngModel"/>
+    </div>
+    <div *ngIf="father_mobile.invalid && father_mobile.touched" class="alert-danger">
+      Number is invalid
+      <div *ngIf="father_mobile.errors.minlength" class="alert-danger">Not a 10 digit number</div>
+    </div>  
+
+    <div class="form-group">
+      <label for="address">Home Address</label>
+      <input type="text" class="form-control" required ngModel #address="ngModel" name="address" id="address">
+    
+    <div class="form-control alert alert-danger" *ngIf="address.invalid && address.touched">Address is required</div>
     </div>
 
     <div class="form-group">

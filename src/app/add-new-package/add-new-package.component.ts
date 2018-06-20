@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import swal  from 'sweetalert';
 import { Http } from '@angular/http';
 import { CheckLoginService } from './../check-login.service';
@@ -12,7 +13,7 @@ export class AddNewPackageComponent implements OnInit {
   courses:any;
   content:String[]=[];
   
-  constructor(public service:CheckLoginService,public http:Http) {
+  constructor(public service:CheckLoginService,public http:Http,public router:Router) {
     this.service.isValid();
   }
 
@@ -45,6 +46,7 @@ export class AddNewPackageComponent implements OnInit {
       {
             this.http.post(environment.url+'package/create_package',x).subscribe(res=>{
             swal("Success","New Package Added","success");
+            this.router.navigate(['./']);
             },err=>{
               swal("Error","Server error , package not added","error");
             });
