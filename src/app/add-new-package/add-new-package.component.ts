@@ -44,9 +44,9 @@ export class AddNewPackageComponent implements OnInit {
       if(value)
       {
             this.http.post(environment.url+'package/create_package',x).subscribe(res=>{
-            swal("Success","New Package Added","Success");
+            swal("Success","New Package Added","success");
             },err=>{
-              swal("Error","Server error , package not added","Error");
+              swal("Error","Server error , package not added","error");
             });
       }
       else{

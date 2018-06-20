@@ -1,3 +1,4 @@
+import { environment } from './../../environments/environment';
 import { CheckLoginService } from './../check-login.service';
 import { Component, OnInit } from '@angular/core';
 
