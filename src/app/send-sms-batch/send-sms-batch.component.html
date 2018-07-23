@@ -1,0 +1,26 @@
+<div class="container" style="border: groove">
+  <p class="h3" style="text-align: center">Send SMS to batches</p>
+  <div>
+    <form #f="ngForm" (ngSubmit)="submit(f.value)">
+      <div class="form-group">
+        <label>Subject</label>
+        <select class="form-control" name="subject" id="subject" #subject="ngModel" ngModel required (change)="selectBatch(subject.value)">
+          <option>None</option>
+          <option *ngFor="let name of course">{{name.name}}</option>
+        </select>
+        <div class="alert alert-danger" *ngIf="subject.invalid && subject.touched">Select a subject !</div>
+      </div>
+
+      <div class="form-group">
+        <label>Batch</label>
+        <select name="batch" id="batch" ngModel #batch="ngModel" required class="form-control" >
+          <option>sadasdsa</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <button class="btn btn-primary lg" [disabled]="!f.valid" type="submit">Send SMS</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -12,8 +12,8 @@
             <th scope="row">{{i+1}}</th>
             <td><a [routerLink]="['../student-details']" [queryParams]="{mobile: detail.mobile }">{{detail.name}}</a></td> 
             <!-- <td><a href="../student-details?mobile={{detail.mobile}}" target="_blank">{{detail.name}}</a></td> -->
-            <td>{{detail.email}}</td>
             <td>{{detail.mobile}}</td>
+            <td>{{detail.email}}</td>
           </tr>
         </tbody>
     </table>

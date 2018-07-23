@@ -28,7 +28,7 @@ import { ErrorPageComponent } from './error-page/error-page.component';
 import { AddNewPackageComponent } from './add-new-package/add-new-package.component';
 import { AddNewCourseComponent } from './add-new-course/add-new-course.component';
 import { UpdateCourseComponent } from './update-course/update-course.component';
-import { SendSmsStudentComponent } from './send-sms-student/send-sms-student.component';
+import { SendSmsBatchComponent } from './send-sms-batch/send-sms-batch.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +55,7 @@ import { SendSmsStudentComponent } from './send-sms-student/send-sms-student.com
     AddNewPackageComponent,
     AddNewCourseComponent,
     UpdateCourseComponent,
-    SendSmsStudentComponent,
+    SendSmsBatchComponent,
 
   ],
   imports: [
@@ -82,7 +82,7 @@ import { SendSmsStudentComponent } from './send-sms-student/send-sms-student.com
       {path:'fee-receipt-print',component:PrintFeeReceiptComponent},
       {path:'add-package',component:AddNewPackageComponent},
       {path:'add-course',component:AddNewCourseComponent},
-      {path:'send-sms',component:SendSmsStudentComponent},
+      {path:'send-sms',component:SendSmsBatchComponent},
       {path:'**',component:ErrorPageComponent},
     ]),
   ],

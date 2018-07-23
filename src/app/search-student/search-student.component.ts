@@ -45,6 +45,7 @@ export class SearchStudentComponent implements OnInit {
     }
   }
   submit(x){
+
     let y=$('select[name=type] option:selected').text();
     if(y=='By Mobile'){
       let x=$('#mobile').val();
@@ -60,4 +61,5 @@ export class SearchStudentComponent implements OnInit {
     }
     
   }
+
 }
